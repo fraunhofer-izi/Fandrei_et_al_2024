@@ -1,5 +1,5 @@
 .cran_packages = c("tidyverse", "MetBrewer", "RColorBrewer", "ggthemes", "scales",
-                   "ggsci", "scico", "ggstar")
+                   "ggsci", "scico", "ggstar", "patchwork")
 
 ## Requiring packages
 for (pack in .cran_packages) {
@@ -78,17 +78,9 @@ gtheme <- function(size=18) {
           legend.text=element_text(size=size))
 }
 
-# often used MetBrewer palettes
-derain = met.brewer("Derain")
-monet = met.brewer("Monet")
-demuth = met.brewer("Demuth")
-
-# Palette for two groups
-two_groups <- c(derain[7], derain[3])
+colors_use.10 = ggthemes::tableau_color_pal("Tableau 10")(10)
 
 # Palette Response groups
-# aaas <- pal_aaas("default")(3)
-# palette_response = c("CR" = aaas[1], "VGPR/PR" = aaas[2], "SD/PD" = aaas[3])
 palette_response = c(
   "CR" = "#6699CC",
   "VGPR/PR" = "#EECC66",
@@ -104,13 +96,14 @@ anno_nejm <- c(
     "SLAMF7" = nejm[4]
 )
 
-# Refractoriness
-col.refr = scico(7, palette="vik")[3:5]
+# refractoriness palette
+col.refr = scico(7, palette="vik")[3:7]
 
-refractoriness_col = c(
-  "TCexposed" = col.refr[1],
-  "TCRRMM" = col.refr[2],
-  "PentaRRMM" = col.refr[3]
+# Treatment refractoriness groups
+refractoriness_col <- c(
+  TCexposed = col.refr[1],
+  TCRRMM = col.refr[2],
+  PentaRRMM = col.refr[3]
 )
 
 pal_product <- c("Ide-cel" = "grey60", "Cilta-cel" = "#004488")

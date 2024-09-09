@@ -1,6 +1,4 @@
-.cran_packages = c("tidyverse", "scales", "psych", "cowplot", "ggsci",
-                   "MetBrewer", "ggpubr", "ggh4x", "ggnewscale", "scico",
-                  "patchwork")
+.cran_packages = c("tidyverse", "psych", "cowplot", "ggpubr", "ggh4x")
 
 ## Loading library
 for (pack in .cran_packages) {
@@ -12,8 +10,8 @@ for (pack in .cran_packages) {
   ))
 }
 
-source("../src/rfunctions.R")
-source("../src/ggstyles.R")
+source("code/src/rfunctions.R")
+source("code/src/ggstyles.R")
 theme_set(mytheme(base_size = 12))
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -24,42 +22,17 @@ bridging.obj = read_rds("../data/bridging_obj.RDS")
 clin_data <- bridging.obj$clin_data
 crs_df = bridging.obj$crs
 
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Fig. 2A : risk categories
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+# labels
 freq_df = clin_data %>% 
   group_by(therapy_before_cart) %>%
   summarize(Freq = n())
-
 freq_diag <- data.frame(freq_df %>% mutate(labels = paste0(as.character(therapy_before_cart), "\n", "n= ", Freq)))
 freq_list <- freq_diag$labels
 freq_list
-
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Risk categories
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-# col.refr <- c(
-#   "#f2f0f7",
-#   "#cbc9e2",
-#   "#9e9ac8",
-#   "#6a51a3",
-#   "#4c3a75"
-# )
-
-col.refr = scico(7, palette="vik")[3:7]
-
-freq_df = clin_data %>% 
-  group_by(therapy_before_cart) %>%
-  summarize(Freq = n())
-
-freq_diag <- data.frame(freq_df %>% mutate(labels = paste0(as.character(therapy_before_cart), "\n", "n= ", Freq)))
-freq_list <- freq_diag$labels
-freq_list
-
-# Treatment refractoriness groups
-refractoriness_col <- c(
-  TCexposed = col.refr[1],
-  TCRRMM = col.refr[2],
-  PentaRRMM = col.refr[3]
-)
 
 refractoriness_plot <- clin_data %>%
   group_by(therapy_before_cart, refractoriness_group) %>%
@@ -222,53 +195,19 @@ risk_panel = refractoriness_plot + cytogen_plot + mycare_plot + riss_plot +
 risk_panel_f = gridExtra::grid.arrange(patchworkGrob(risk_panel), bottom = "Proportion of patients")
 
 ggsave2(
-  "../figures/figure_2/risk_panel.png",
+  "figures/main/figure_2/risk_panel.png",
   plot = risk_panel_f,
   width = 210, height = 80, dpi = 400, bg = "white", units = "mm", scale = 1.6
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Survival: Remission before CAR-T
+# Fig. 2B : ORR of bridging therapy
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-km_response_to_bridging = km_plot(
-  clin_data,
-  "pfs_months",
-  "status",
-  "status_before_cart",
-  palette_response,
-  "Response to BT",
-  c(9, .9),
-  limits=c(0,12),
-  conf = F,
-  break.by=3
-)
-
-ggsave2(
-  "../figures/figure_2/km_response_to_bridging.png",
-  km_response_to_bridging,
-  width = 130, height = 130, dpi = 400, bg = "white", units = "mm", scale = 1.3
-)
-
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Survival: 30 day response bridging bin
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-km_response_to_bridging = km_plot(
-  clin_data,
-  "pfs_months",
-  "status",
-  "bridging_bin",
-  pal_br_bin,
-  "Response to bridging",
-  c(10, .98),
-  c(0,12),
-  conf = F
-)
-
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# ORR of bridging therapy
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+clin_data %>%
+  group_by(all_groups_before_cart) %>%
+  summarize(n=n()) %>% 
+  mutate(perc=n/sum(n)*100)
 
 clin_data %>%
   group_by(bridging_bin, status_before_cart) %>%
@@ -294,16 +233,38 @@ orr_box <- clin_data %>%
   guides(fill="none") +
   annotate("text", y=65, x=1, label="ORR: 56%", size=5) +
   scale_y_continuous(position = "left")
-orr_box
 
 ggsave2(
-  "../figures/figure_2/orr_box.png",
+  "figures/main/figure_2/orr_box.png",
   plot = orr_box,
   width = 50, height = 75, dpi = 400, bg = "white", units = "mm", scale = 1.4
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Response after bridging bar plot
+# Fig. 2C : Survival - Remission before CAR-T
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+km_response_to_bridging = km_plot(
+  clin_data,
+  "pfs_months",
+  "status",
+  "status_before_cart",
+  palette_response,
+  "Response to BT",
+  c(9, .9),
+  limits=c(0,12),
+  conf = F,
+  break.by=3
+)
+
+ggsave2(
+  "figures/main/figure_2/km_response_to_bridging.png",
+  km_response_to_bridging,
+  width = 130, height = 130, dpi = 400, bg = "white", units = "mm", scale = 1.3
+)
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Fig. 2D: Response after bridging bar plot
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # Binary
@@ -368,12 +329,11 @@ orr_plot = ggplot(orr_data, aes(x=therapy_before_cart, y=orr, fill=overall_respo
 
 response_bridging_g <- remission_before_cart_plot + orr_plot + plot_layout(widths = c(2, 1), guides = "collect") & 
   theme(legend.position = "top")
-response_bridging_g
 
 ggsave2(
-  "../figures/figure_2/response_bridging.png",
+  "figures/main/figure_2/response_bridging.png",
   plot = response_bridging_g,
-  width = 103, height = 65, dpi = 400, bg = "white", units = "mm", scale = 1.6
+  width = 100, height = 65, dpi = 400, bg = "white", units = "mm", scale = 1.6
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -384,7 +344,7 @@ dur_df = clin_data %>% filter(`30 day response` != "SD/PD")
 survfit(Surv(pfs_months, status) ~ 1, dur_df)
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Inflammation markers violins
+# Fig. 2D : Inflammation markers violins
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 crs_long <- crs_df[,c(1, 5:57)] %>% 
@@ -419,13 +379,13 @@ inflammation_violins <- crs_long %>%
   guides(fill = guide_legend(nrow=2))
 
 ggsave2(
-  "../figures/figure_2/inflammation_markers_violins.png",
+  "figures/main/figure_2/inflammation_markers_violins.png",
   plot = inflammation_violins,
   width = 115, height = 75, dpi = 400, bg = "white", units = "mm", scale = 1.6
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# CRS groups
+# Fig. 2E: : CRS groups
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 crs_groups_bar_1 <- crs_df %>%
@@ -496,7 +456,7 @@ crs_df %>%
   mutate(prop=n/sum(n))
 
 ggsave2(
-  "../figures/figure_2/crs_plot.png",
+  "figures/main/figure_2/crs_plot.png",
   plot = crs_plot,
-  width = 100, height = 63, dpi = 400, bg = "white", units = "mm", scale = 1.6
+  width = 100, height = 68, dpi = 400, bg = "white", units = "mm", scale = 1.6
 )

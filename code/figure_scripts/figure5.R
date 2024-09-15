@@ -21,16 +21,10 @@ theme_set(mytheme(base_size = 12))
 bridging.obj = read_rds("data/bridging_obj.RDS")
 
 clin_data = bridging.obj$clin_data
-clin_data$sample_id = paste0(clin_data$patient_id, "_1")
+tcell.df = bridging.obj$t_cells
 t_cells_abs_df = bridging.obj$t_cells_abs
 pd1_car_df = bridging.obj$pd1_car_df
 checkpoint_immu_df = bridging.obj$checkpoint_immu_df
-
-tcell.df = read_excel(
-  "../data/clinical_table_DF_2024_06_10.xlsx",
-  sheet = 10
-) %>%
-  filter(sample_id %in% clin_data$sample_id)
 
 # Single cell data
 sc.t = read.csv(
@@ -42,14 +36,13 @@ sc.t = read.csv(
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 tregs_bridging = t_cells_abs_df %>%
-  left_join(clin_data[,c("patient_id", "therapy_before_cart")]) %>%
   mutate( 
     Day = factor(car::recode(Day, "'Leukapheresis' = 'LA'"),
                  levels=c("LA", "Day 0", "Day 7", "Day 14", "Day 30", "Day 100"))
   ) %>%
-  filter(tcell_subset == "Tregs (%CD3+)") %>%
+  filter(tcell_subset == "Tregs") %>%
   ggplot(aes(x=Day, y=value, fill=therapy_before_cart)) +
-  geom_boxplot(alpha=.75, draw_quantiles = .5, color ="grey20", outlier.shape = NA) +
+  geom_boxplot(alpha=.75, color ="grey20", outlier.shape = NA) +
   geom_point(stat="identity", alpha=.5, color="black", size=1, position = position_jitterdodge(jitter.width = .15), show.legend = F) +
   mytheme_grid(13) +
   theme(
@@ -61,9 +54,8 @@ tregs_bridging = t_cells_abs_df %>%
   xlab("Time point") +
   ylab("# cells 10^6/ml") +
   scale_fill_manual(name="Bridging", values=anno_nejm) +
-  scale_y_log10() +
-  stat_compare_means(label="p.format") +
-  geom_pwc( label = "p.signif", hide.ns="p", vjust=0.5, label.size=5)
+  scale_y_log10(expand = c(0.1,0)) +
+  stat_compare_means(label="p.format")
 
 ggsave2(
   "figures/main/figure_5/treg_boxplots.png",
@@ -75,41 +67,26 @@ ggsave2(
 # Fig. 5B : Bispecific Ab vs others abundance
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+# Get proportions
+recode_tcells = "'Tregs'='total Tregs'; 'Memory Tregs' = 'memory Tregs'; 'CD8 Thymusemigrants' = 'CD8 thymic emigrants'; 'CD8 Effektorzellen'= 'CD8 effector'; 'CD8 Eff-Memory' = 'CD8 effector memory';
+  'CD8 central Memory' = 'CD8 central memory'; 'CD4 Thymusemi' = 'CD4 thymic emigrants'; 'CD4 Effektorzellen'='CD4 effector'; 'CD4 Eff-Memory'='CD4 effector memory'; 'CD4 central Memory'='CD4 central memory'"
+
+t_cell_perc_col <- grep("?%", colnames(tcell.df), value=T)
+
+# Perform Wilcoxon tests between BT groups on all time points
 tcell.df_long = tcell.df %>%
-  pivot_longer(cols = c(5:ncol(tcell.df)), names_to = "tcell_subset") %>%
+  pivot_longer(cols = c(4:ncol(tcell.df)), names_to = "tcell_subset") %>%
   mutate(group = case_when(
     grepl("CD4", tcell_subset) ~ "CD4",
     grepl("CD8", tcell_subset) ~ "CD8",
     grepl("Treg", tcell_subset) ~ "Treg"
   ))
 
-t_cell_abs_col <- grep("?abs", colnames(tcell.df), value=T)
-t_cell_perc_col <- grep("?%", colnames(tcell.df), value=T)
-
-tcell_abs = tcell.df_long %>%
-  filter(tcell_subset %in% t_cell_abs_col)
-
-## Prepare T cells
-recode_tcells <- "'CD4 Thymusemi %' = 'CD4+ thymic emigrants'; 'naive CD4 %' = 'Naive CD4+'; 'CD4 Eff-Memory %' = 'CD4+ effector memory';
-    'CD4 central Memory %' = 'CD4+ central memory'; 'CD4 Effektorzellen %' = 'CD4+ effector'; 'CD8 Thymusemigrants %' = 'CD8+ thymic emigrants';
-    'naive CD8 %' = 'Naive CD8+'; 'CD8 Eff-Memory %' ='CD8+ effector memory'; 'CD8 central Memory %' = 'CD8+ central memory';
-    'CD8 Effektorzellen %' = 'CD8+ effector'; 'Tregs %' = 'Tregs (%CD3+)';  'naive Tregs %' = 'Naive Tregs (%Treg)';
-    'Memory Tregs %'= 'Memory Tregs (%Treg)'"
-
-t_cell_df = tcell.df_long %>% 
-  filter(tcell_subset %in% t_cell_perc_col) %>%
-  group_by(sample_id, group) %>%
-  mutate(tcell_subset = car::recode(tcell_subset, recode_tcells)) %>%
-  left_join(clin_data[,c("sample_id", "therapy_before_cart")], by="sample_id")
-
 t_cell_df = tcell.df_long %>%
   filter(tcell_subset %in% t_cell_perc_col) %>%
-  left_join(clin_data[,c("sample_id", "bridging_bin")]) %>%
+  left_join(clin_data[,c("patient_id", "bridging_bin")]) %>%
   mutate(comp = paste0(tcell_subset, "_", Day), bridging_bin = factor(bridging_bin, levels = c("Other", "Bispecific Ab"))) %>%
   filter(!is.na(value), group != "Treg")
-
-recode_tcells = "'Tregs'='total Tregs'; 'Memory Tregs' = 'memory Tregs'; 'CD8 Thymusemigrants' = 'CD8 thymic emigrants'; 'CD8 Effektorzellen'= 'CD8 effector'; 'CD8 Eff-Memory' = 'CD8 effector memory';
-  'CD8 central Memory' = 'CD8 central memory'; 'CD4 Thymusemi' = 'CD4 thymic emigrants'; 'CD4 Effektorzellen'='CD4 effector'; 'CD4 Eff-Memory'='CD4 effector memory'; 'CD4 central Memory'='CD4 central memory'"
 
 pval_df = t_cell_df %>%
   group_by(tcell_subset, Day) %>%

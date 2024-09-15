@@ -1,0 +1,53 @@
+patient_id,therapy_before_cart,treatment_before_apheresis
+Patient001,SLAMF7,EloPCD
+Patient006,Chemotherapy,BendaKd
+Patient007,CD38,DaraPd
+Patient008,CD38,DaraPd
+Patient009,Chemotherapy,HD Melphalan + ASCT
+Patient010,SLAMF7,EloPD
+Patient011,Chemotherapy,Selinexor
+Patient012,CD38,IsaPd
+Patient013,CD38,DRd
+Patient014,CD38,IsaKd
+Patient015,Chemotherapy,KCD
+Patient016,Chemotherapy,PACE+VTD
+Patient017,CD38,IsaPd
+Patient018,SLAMF7,EloPd
+Patient019,Chemotherapy,FVD
+Patient020,Chemotherapy,KCD
+Patient021,CD38,IsaD
+Patient022,Bispecific Ab,Teclistamab
+Patient023,CD38,IsaKd
+Patient024,Bispecific Ab,Teclistamab
+Patient025,Chemotherapy,KCD
+Patient026,CD38,IsaKd
+Patient027,CD38,IsaKCd
+Patient028,SLAMF7,EloPd
+Patient029,CD38,IsaD
+Patient030,CD38,DaraKd
+Patient031,Bispecific Ab,Teclistamab
+Patient032,Bispecific Ab,Teclistamab
+Patient033,Bispecific Ab,Teclistamab
+Patient034,CD38,IsaKd
+Patient035,SLAMF7,EloPd
+Patient036,Chemotherapy,CED
+Patient037,SLAMF7,EloPd
+Patient038,CD38,IsaKd
+Patient039,Chemotherapy,FVD
+Patient040,SLAMF7,EloPd
+Patient041,Chemotherapy,Trametinib + Dabrafenib
+Patient042,CD38,DaraRD
+Patient043,Bispecific Ab,Talquetamab
+Patient044,Chemotherapy,BPV
+Patient045,Chemotherapy,CED
+Patient046,CD38,DaraVd
+Patient047,CD38,IsaKd
+Patient048,Bispecific Ab,Talquetamab
+Patient049,CD38,IsaKd
+Patient050,Bispecific Ab,Talquetamab
+Patient051,Chemotherapy,KMezD
+Patient052,Bispecific Ab,Talquetamab
+Patient053,Chemotherapy,KD
+Patient054,CD38,Dara-VTD
+Patient055,Bispecific Ab,Talquetamab
+Patient056,SLAMF7,EloPd

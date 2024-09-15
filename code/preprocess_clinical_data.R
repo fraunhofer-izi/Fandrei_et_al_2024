@@ -212,16 +212,14 @@ immune_subset_df <- immune_df %>%
                          "Product", "refractoriness_group")], by="sample_id")
 
 # T cell subsets
+recode_tcells <- "'CD4 Thymusemi %' = 'CD4+ thymic emigrants'; 'naive CD4 %' = 'Naive CD4+'; 'CD4 Eff-Memory %' = 'CD4+ effector memory';
+    'CD4 central Memory %' = 'CD4+ central memory'; 'CD4 Effektorzellen %' = 'CD4+ effector'; 'CD8 Thymusemigrants %' = 'CD8+ thymic emigrants';
+    'naive CD8 %' = 'Naive CD8+'; 'CD8 Eff-Memory %' ='CD8+ effector memory'; 'CD8 central Memory %' = 'CD8+ central memory';
+    'CD8 Effektorzellen %' = 'CD8+ effector'; 'Tregs %' = 'Tregs';  'naive Tregs %' = 'Naive Tregs';
+    'Memory Tregs %'= 'Memory Tregs'"
+
 t_cells$Day = factor(t_cells$Day, levels = day_levels)
 
-recode_tcells <- "'CD4_Thymusemi%' = 'CD4+ thymic emigrants'; 'naive_CD4%' = 'Naive CD4+'; 'CD4_Eff_Memory%' = 'CD4+ effector memory';
-    'CD4_central_Memory%' = 'CD4+ central memory'; 'CD4_Effektor%' = 'CD4+ effector'; 'CD8_Thymusemi%' = 'CD8+ thymic emigrants';
-    'naive_CD8%' = 'Naive CD8+'; 'CD8_Eff_Memory%' ='CD8+ effector memory'; 'CD8_central_Memory%' = 'CD8+ central memory';
-    'CD8_Effektor%' = 'CD8+ effector'; 'Tregs%' = 'Tregs (%CD3+)';  'naive_Tregs%' = 'Naive Tregs (%Treg)';
-    'Memory_Tregs%'= 'Memory Tregs (%Treg)'"
-
-
-# # Export percentages
 t_cells_long = t_cells %>%
   pivot_longer(cols = c(4:ncol(t_cells)), names_to = "tcell_subset") %>%
   mutate(group = case_when(
@@ -230,58 +228,10 @@ t_cells_long = t_cells %>%
     grepl("Treg", tcell_subset) ~ "Treg"
   ))
 
-treg_tot = t_cells_long %>%
-  filter(tcell_subset == "Tregs%") %>%
-  rename(perc = "value") %>%
-  mutate(perc = perc/100)
-
-treg_subsets_df = t_cells_long %>%
-  filter(tcell_subset %in% c("naive_Tregs_abs", "Memory_Tregs_abs")) %>%
-  group_by(sample_id, group) %>%
-  mutate(perc = value/sum(value)) %>%
-  ungroup() %>%
-  mutate(tcell_subset = gsub("_abs", "%", tcell_subset)) %>%
-  mutate(tcell_subset = car::recode(tcell_subset, "'naive_Tregs%' = 'Naive Tregs (%Treg)';'Memory_Tregs%'='Memory Tregs (%Treg)'")) %>%
-  dplyr::select(-value)
-
-treg_df = rbind(treg_tot, treg_subsets_df)
-  
-t_cells_df = t_cells_long %>%
-  filter(group != "Treg") %>%
-  group_by(sample_id, group) %>%
-  mutate(perc = value/sum(value)) %>%
-  mutate( tcell_subset=car::recode(gsub("_abs", "%", tcell_subset), recode_tcells )) %>%
-  ungroup() %>%
-  dplyr::select(-value) %>%
-  rbind(treg_tot) %>%
-  rbind(treg_subsets_df) %>%
-  mutate(perc = round(perc, 4)*100) %>%
-  left_join(
-    clin_data[,c("patient_id", "status_before_cart", "Product", "therapy_before_cart", "30 day response", "refractoriness_group", "bridging_bin")],
-    by="patient_id"
-  ) %>%
-  mutate(Day = factor(Day, levels=day_levels))
-
-t_cells_perc = t_cells_df[,c("sample_id", "tcell_subset", "perc")] %>%
-  pivot_wider(id_cols = sample_id, names_from=tcell_subset, values_from=perc)
-colnames(t_cells_perc)[2:14] = paste0(colnames(t_cells_perc)[2:14], " %")
-
-## absolute values
-t_cell_abs_col <- grep("?abs", colnames(t_cells), value=T)
-
-t_cells_abs_df <- t_cells %>%
-  dplyr::select(all_of(c("sample_id", t_cell_abs_col))) %>%
-  # dplyr::select(-Tregs_abs) %>%
-  pivot_longer(!sample_id, names_to = "tcell_subset", values_to="value") %>%
-  mutate(group = case_when(
-    grepl("CD4", tcell_subset) ~ "CD4",
-    grepl("CD8", tcell_subset) ~ "CD8",
-    grepl("Treg", tcell_subset) ~ "Treg"
-  ) )  %>%
-  mutate(patient_id = gsub("_+.", "", sample_id), tcell_subset = gsub("_abs", "%", tcell_subset)) %>%
-  mutate(tcell_subset = car::recode(tcell_subset, recode_tcells)) %>%
-  left_join(t_cells[,c("sample_id", "Day")], by = "sample_id") %>%
-  left_join(clin_data[,c("patient_id", "therapy_before_cart", "status_before_cart", "bridging_bin")], by="patient_id")
+t_cells_abs = t_cells_long %>%
+  filter(grepl("abs", tcell_subset)) %>%
+  mutate(tcell_subset = car::recode(gsub("abs", "%", tcell_subset), recode_tcells) ) %>%
+  left_join(clin_data[,c("patient_id", "therapy_before_cart", "status_before_cart", "bridging_bin")])
 
 # CRS
 crs_df <- crs %>% 
@@ -334,9 +284,8 @@ bridging.obj <- list(
   immune_df = immune_df,
   immune_subsets = immune_subset_df,
   cytotox = cytotox_df,
-  t_cells = t_cells_df,
-  t_cells_abs = t_cells_abs_df,
-  treg = treg_df,
+  t_cells = t_cells,
+  t_cells_abs = t_cells_abs,
   crs = crs_df,
   bite_admin = bite_admin_df,
   bite_leukapheresis = bite_leukapheresis,

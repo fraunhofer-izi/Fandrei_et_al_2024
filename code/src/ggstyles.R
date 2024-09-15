@@ -78,8 +78,6 @@ gtheme <- function(size=18) {
           legend.text=element_text(size=size))
 }
 
-colors_use.10 = ggthemes::tableau_color_pal("Tableau 10")(10)
-
 # Palette Response groups
 palette_response = c(
   "CR" = "#6699CC",
@@ -115,6 +113,14 @@ pal_crs <- c(
     "CRS-toci" = demuth[4],
     "CRS+toci" = demuth[2]
 )
+
+# T cell subsets
+colors_use.10 = ggthemes::tableau_color_pal("Tableau 10")(10)
+t_pal = c("CD4+ central memory" = colors_use.10[1], "CD4+ effector" = colors_use.10[2],
+          "CD4+ effector memory" = colors_use.10[3], "CD4+ thymic emigrants" = colors_use.10[4],
+          "CD8+ central memory" = colors_use.10[5], "CD8+ effector" = colors_use.10[6],
+          "CD8+ effector memory" = colors_use.10[7], "CD8+ thymic emigrants" = colors_use.10[8],
+          "Naive CD4+" = colors_use.10[9], "Naive CD8+" = colors_use.10[10])
 
 # CLonotype groups
 clono.col = c(`Hyperexpanded (100 < X <= 1905)` = "#FF4B20", `Large (20 < X <= 100)`="#FFb433",

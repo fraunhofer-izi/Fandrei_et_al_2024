@@ -115,3 +115,8 @@ pal_crs <- c(
     "CRS-toci" = demuth[4],
     "CRS+toci" = demuth[2]
 )
+
+# CLonotype groups
+clono.col = c(`Hyperexpanded (100 < X <= 1905)` = "#FF4B20", `Large (20 < X <= 100)`="#FFb433",
+              `Medium (5 < X <= 20)`="#C6FDEC", `Small (1 < X <= 5)`="#7AC5FF",
+              `Single (0 < X <= 1)`="#0348A6")

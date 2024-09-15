@@ -18,7 +18,7 @@ theme_set(mytheme(base_size = 12))
 # LOAD DATA
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-bridging.obj = read_rds("../data/bridging_obj.RDS")
+bridging.obj = read_rds("data/bridging_obj.RDS")
 
 clin_data <- bridging.obj$clin_data
 immune_df = bridging.obj$immune_df

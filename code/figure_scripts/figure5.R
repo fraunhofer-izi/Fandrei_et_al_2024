@@ -1,4 +1,4 @@
-.cran_packages = c("tidyverse", "psych", "cowplot", "DescTools")
+.cran_packages = c("tidyverse", "psych", "cowplot", "DescTools", "readxl")
 
 ## Loading library
 for (pack in .cran_packages) {
@@ -12,28 +12,67 @@ for (pack in .cran_packages) {
 
 source("code/src/rfunctions.R")
 source("code/src/ggstyles.R")
-
 theme_set(mytheme(base_size = 12))
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # LOAD DATA
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-bridging.obj = read_rds("../data/bridging_obj.RDS")
+bridging.obj = read_rds("data/bridging_obj.RDS")
 
 clin_data = bridging.obj$clin_data
 clin_data$sample_id = paste0(clin_data$patient_id, "_1")
+t_cells_abs_df = bridging.obj$t_cells_abs
 pd1_car_df = bridging.obj$pd1_car_df
 checkpoint_immu_df = bridging.obj$checkpoint_immu_df
 
 tcell.df = read_excel(
-  "../../data/clinical_table_DF_2024_06_10.xlsx",
+  "../data/clinical_table_DF_2024_06_10.xlsx",
   sheet = 10
 ) %>%
   filter(sample_id %in% clin_data$sample_id)
 
+# Single cell data
+sc.t = read.csv(
+  "data/tcell_data.csv"
+)
+
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Bispecific Ab vs others abundance
+#  Fig. 5A : Tregs in BT groups
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+tregs_bridging = t_cells_abs_df %>%
+  left_join(clin_data[,c("patient_id", "therapy_before_cart")]) %>%
+  mutate( 
+    Day = factor(car::recode(Day, "'Leukapheresis' = 'LA'"),
+                 levels=c("LA", "Day 0", "Day 7", "Day 14", "Day 30", "Day 100"))
+  ) %>%
+  filter(tcell_subset == "Tregs (%CD3+)") %>%
+  ggplot(aes(x=Day, y=value, fill=therapy_before_cart)) +
+  geom_boxplot(alpha=.75, draw_quantiles = .5, color ="grey20", outlier.shape = NA) +
+  geom_point(stat="identity", alpha=.5, color="black", size=1, position = position_jitterdodge(jitter.width = .15), show.legend = F) +
+  mytheme_grid(13) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    legend.position = "bottom",
+    axis.text.x = element_text(angle=45, hjust=1, vjust=1)
+  ) +
+  facet_grid(.~paste0("Treg")) +
+  xlab("Time point") +
+  ylab("# cells 10^6/ml") +
+  scale_fill_manual(name="Bridging", values=anno_nejm) +
+  scale_y_log10() +
+  stat_compare_means(label="p.format") +
+  geom_pwc( label = "p.signif", hide.ns="p", vjust=0.5, label.size=5)
+
+ggsave2(
+  "figures/main/figure_5/treg_boxplots.png",
+  tregs_bridging,
+  width = 103, height = 84, dpi = 400, bg = "white", units = "mm", scale = 1.6
+)
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Fig. 5B : Bispecific Ab vs others abundance
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 tcell.df_long = tcell.df %>%
@@ -97,8 +136,6 @@ FC.df = by_group %>%
 
 res = left_join(pval_df, FC.df, by=c("Day", "tcell_subset"))
 
-res$tcell_subset
-
 cd4_diff = res %>%
   filter(celltype_short == "CD4") %>%
   mutate(tcell_subset = factor(tcell_subset, levels = rev(c("CD4 thymic emigrants", "naive CD4", "CD4 central memory", "CD4 effector memory",
@@ -132,17 +169,58 @@ cd8_diff = res %>%
 cd4_diff + cd8_diff + plot_layout(nrow=2, guides="collect")
 
 ggsave2(
-  "../figures/figure_5/t_diff_heatmap.png",
-  width = 125, height=120, dpi = 400, units = "mm", bg="white",
-  scale=1.4
+  "figures/main/figure_5/t_diff_heatmap.png",
+  width = 100, height=90, dpi = 400, units = "mm", bg="white",
+  scale=1.3
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# PD1 violin plots
+# Fig. 5C : Checkpoints on CARs
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-# longitudinal
-# pvalue to code
+marker_lvl = c("PD1", "TIGIT", "TIM3", "LAG-3", "VISTA")
+day_lvl = c("Day 7", "Day 14", "Day 30", "Day 100")
+
+pd1_long = pd1_car_df %>%
+  dplyr::select(-patient_id) %>%
+  pivot_longer(c(2:9)) %>%
+  filter(!is.na(value)) %>%
+  separate_wider_delim(name, "_", names = c("Day", "name")) %>%
+  rowwise() %>%
+  mutate(Day = factor(Day, levels = day_lvl), line = str_split(name, "\\+")[[1]][1], marker = str_split(name, "\\+")[[1]][3])
+
+checkpoints_long = checkpoint_immu_df %>%
+  pivot_longer(c(3:34)) %>%
+  filter(grepl("CAR\\+CD[4,8]\\+[A-Z]", name), Day %in% day_lvl) %>%
+  rowwise() %>%
+  mutate(line = str_split(name, "\\+")[[1]][2], marker = str_split(name, "\\+")[[1]][3])
+
+longitudinal_checkpoint_cars = rbind(checkpoints_long, pd1_long) %>%
+  left_join(clin_data[,c("sample_id", "bridging_bin")]) %>%
+  mutate(marker = factor(marker, levels = marker_lvl)) %>%
+  ggplot(aes(x=Day, y=value, fill=bridging_bin)) +
+  geom_boxplot(outlier.shape = NA, linewidth=0.3, alpha=.75) +
+  geom_point(color = "grey20", alpha = .6, position = position_jitterdodge(jitter.width = .3), size=.8) +
+  scale_fill_manual("Bridging", values=c(anno_nejm[1], Other="grey60")) +
+  facet_grid(line~marker) +
+  mytheme_grid() +
+  theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1), panel.grid.major.x = element_blank(), legend.position = "bottom", panel.spacing = unit(.75, "lines")) +
+  ylab("Proportion (%) of CAR+ cells") +
+  xlab("Time point after CAR T cell infusion") +
+  scale_y_continuous(expand = c(0.1, 0), breaks=seq(0,100,25)) +
+  geom_pwc(label="p.signif", hide.ns=T)
+
+ggsave2(
+  "figures/main/figure_5/longitudinal_checkpoint_cars.png",
+  longitudinal_checkpoint_cars,
+  width = 215, height = 109, dpi = 400, bg = "white", units = "mm", scale = 1
+)
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Fig. 5D : PD1 violin plots
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+# pvalue (ns as "ns")
 pval_to_signif_code <- function(p_vals) {
   return(ifelse(p_vals < 0.001, "***",
                 ifelse(p_vals < 0.01, "**",
@@ -204,7 +282,7 @@ longitudinal_pd1_df = immune_subset_df %>%
 
 jockheere_df = rbind(bite_jockheere_df, other_jockheere_df)
 
-ggplot(longitudinal_pd1_df, aes(x=Day, y=perc, fill=bridging_bin)) +
+longitudinal_pd1_violins = ggplot(longitudinal_pd1_df, aes(x=Day, y=perc, fill=bridging_bin)) +
   geom_violin(alpha=.75, draw_quantiles = .5, color ="grey20", show.legend = F) +
   geom_point(color = "grey20", alpha = .6, position = position_jitterdodge(jitter.width = .3), size=.8) +
   mytheme_grid(13) +
@@ -225,54 +303,31 @@ ggplot(longitudinal_pd1_df, aes(x=Day, y=perc, fill=bridging_bin)) +
   scale_y_continuous(expand = c(.12,.07), breaks=seq(0,100,25))
 
 ggsave2(
-  filename="../figures/figure_5/longitudinal_pd1_violins.png",
-  width = 140, height = 140, dpi = 400, bg = "white", units = "mm", scale = 1
+  filename="figures/main/figure_5/longitudinal_pd1_violins.png",
+  longitudinal_pd1_violins,
+  width = 130, height = 140, dpi = 400, bg = "white", units = "mm", scale = 1
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Checkpoints on CARs
+# Fig. 5E : T cell exhaustion signature on single cell data
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-marker_lvl = c("PD1", "TIGIT", "TIM3", "LAG-3", "VISTA")
-day_lvl = c("Day 7", "Day 14", "Day 30", "Day 100")
+lab = as_labeller((c("Apheresis"="LA", "Late"="Day 30", "Very Late"="Day 100", "CD4 T-Cell"="CD4+", "CD8 T-Cell"="CD8+")))
 
-pd1_long = pd1_car_df %>%
-  dplyr::select(-patient_id) %>%
-  pivot_longer(c(2:9)) %>%
-  filter(!is.na(value)) %>%
-  separate_wider_delim(name, "_", names = c("Day", "name")) %>%
-  rowwise() %>%
-  mutate(Day = factor(Day, levels = day_lvl), line = str_split(name, "\\+")[[1]][1], marker = str_split(name, "\\+")[[1]][3])
-
-checkpoints_long = checkpoint_immu_df %>%
-  pivot_longer(c(3:34)) %>%
-  filter(grepl("CAR\\+CD[4,8]\\+[A-Z]", name), Day %in% day_lvl) %>%
-  rowwise() %>%
-  mutate(line = str_split(name, "\\+")[[1]][2], marker = str_split(name, "\\+")[[1]][3])
-
-rbind(checkpoints_long, pd1_long) %>%
-  left_join(clin_data[,c("sample_id", "bridging_bin")]) %>%
-  mutate(marker = factor(marker, levels = marker_lvl)) %>%
-  group_by(Day, line, bridging_bin, marker) %>%
-  summarize(n = n()) %>%
-  print(n=80)
-  
-rbind(checkpoints_long, pd1_long) %>%
-  left_join(clin_data[,c("sample_id", "bridging_bin")]) %>%
-  mutate(marker = factor(marker, levels = marker_lvl)) %>%
-  ggplot(aes(x=Day, y=value, fill=bridging_bin)) +
-  geom_boxplot(outlier.shape = NA, linewidth=0.3, alpha=.75) +
-  geom_point(color = "grey20", alpha = .6, position = position_jitterdodge(jitter.width = .3), size=.8) +
-  scale_fill_manual("Bridging", values=c(anno_nejm[1], Other="grey60")) +
-  facet_grid(line~marker) +
-  mytheme_grid() +
-  theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1), panel.grid.major.x = element_blank(), legend.position = "bottom", panel.spacing = unit(.75, "lines")) +
-  ylab("Proportion (%) of CAR+ cells") +
-  xlab("Time point after CAR T cell infusion") +
-  scale_y_continuous(expand = c(0.1, 0), breaks=seq(0,100,25)) +
-  geom_pwc(label="p.signif", hide.ns=T)
+tcell_exh_sig = sc.t %>%
+  filter(TIMEPOINT %in% c("Apheresis", "Late", "Very Late"), celltype_short_2 %in% c("CD8 T-Cell", "CD4 T-Cell")) %>%
+  group_by(TIMEPOINT, celltype_short_2, celltype, BRIDGING_BIN) %>%
+  summarize(mean = mean(exhaustion_UCell_2)) %>%
+  ungroup() %>%
+  mutate(scaled = scale(mean)) %>%
+  ggplot(aes(x=BRIDGING_BIN, y=celltype, fill = scaled)) +
+  geom_tile() +
+  facet_grid(celltype_short_2~TIMEPOINT, scales="free", labeller = lab) +
+  scale_fill_scico(palette = "vik", begin=0, end=.95, midpoint=0, name="Z-score\nexhaustion") +
+  theme(axis.title = element_blank(), axis.text.x = element_text(angle=45, hjust=1, vjust=1))
 
 ggsave2(
-  "../figures/figure_5/longitudinal_pd1_cars.png",
-  width = 215, height = 109, dpi = 400, bg = "white", units = "mm", scale = 1
+  "figures/main/figure_5/exhaustion_heatmap.png",
+  tcell_exh_sig,
+  height=110, width=133, units="mm", bg="white", dpi=400, scale=1.2
 )

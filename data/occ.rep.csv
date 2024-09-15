@@ -1,0 +1,884 @@
+"celltype","TMP","cloneSize","value","meta[, 1]","total","prop","GROUP","TIME"
+"CD4
+CTL
+EOMES","Bispecific Ab_Apheresis","Hyperexpanded (100 < X <= 1905)",13,"CD4.CTL_EOMES",10224,0.00127151799687011,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+GNLY","Bispecific Ab_Apheresis","Hyperexpanded (100 < X <= 1905)",1,"CD4.CTL_GNLY",3389,0.000295072292711714,"Bispecific Ab","Apheresis"
+"CD8
+CM","Bispecific Ab_Apheresis","Hyperexpanded (100 < X <= 1905)",229,"CD8.CM",15683,0.0146017981253587,"Bispecific Ab","Apheresis"
+"CD8
+Cycling","Bispecific Ab_Apheresis","Hyperexpanded (100 < X <= 1905)",30,"CD8.Cycling",2140,0.014018691588785,"Bispecific Ab","Apheresis"
+"CD8
+EM","Bispecific Ab_Apheresis","Hyperexpanded (100 < X <= 1905)",722,"CD8.EM",32798,0.0220135374108177,"Bispecific Ab","Apheresis"
+"CD8
+TEMRA","Bispecific Ab_Apheresis","Hyperexpanded (100 < X <= 1905)",404,"CD8.TEMRA",17451,0.0231505357859148,"Bispecific Ab","Apheresis"
+"CD8
+TEX","Bispecific Ab_Apheresis","Hyperexpanded (100 < X <= 1905)",103,"CD8.TEX",6159,0.0167234940737133,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 100","Hyperexpanded (100 < X <= 1905)",21,"CD4.CTL_EOMES",10224,0.00205399061032864,"Bispecific Ab","Day 100"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 100","Hyperexpanded (100 < X <= 1905)",12,"CD4.CTL_GNLY",3389,0.00354086751254057,"Bispecific Ab","Day 100"
+"CD8
+CM","Bispecific Ab_Day 100","Hyperexpanded (100 < X <= 1905)",676,"CD8.CM",15683,0.0431039979595741,"Bispecific Ab","Day 100"
+"CD8
+Cycling","Bispecific Ab_Day 100","Hyperexpanded (100 < X <= 1905)",7,"CD8.Cycling",2140,0.00327102803738318,"Bispecific Ab","Day 100"
+"CD8
+EM","Bispecific Ab_Day 100","Hyperexpanded (100 < X <= 1905)",990,"CD8.EM",32798,0.0301847673638636,"Bispecific Ab","Day 100"
+"CD8
+TEMRA","Bispecific Ab_Day 100","Hyperexpanded (100 < X <= 1905)",364,"CD8.TEMRA",17451,0.0208584035298837,"Bispecific Ab","Day 100"
+"CD8
+TEX","Bispecific Ab_Day 100","Hyperexpanded (100 < X <= 1905)",32,"CD8.TEX",6159,0.00519564864426043,"Bispecific Ab","Day 100"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",143,"CD4.CTL_EOMES",10224,0.0139866979655712,"Bispecific Ab","Day 30"
+"CD4
+CTL
+Exh","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",15,"CD4.CTL_Exh",831,0.0180505415162455,"Bispecific Ab","Day 30"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",34,"CD4.CTL_GNLY",3389,0.0100324579521983,"Bispecific Ab","Day 30"
+"CD4
+Cycling","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",13,"CD4.Cycling",960,0.0135416666666667,"Bispecific Ab","Day 30"
+"CD4
+Naive
+Like","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",8,"CD4.NaiveLike",10717,0.000746477559018382,"Bispecific Ab","Day 30"
+"CD4
+Tfh","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",3,"CD4.Tfh",2057,0.00145843461351483,"Bispecific Ab","Day 30"
+"CD8
+CM","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",64,"CD8.CM",15683,0.0040808518778295,"Bispecific Ab","Day 30"
+"CD8
+Cycling","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",78,"CD8.Cycling",2140,0.0364485981308411,"Bispecific Ab","Day 30"
+"CD8
+EM","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",624,"CD8.EM",32798,0.0190255503384353,"Bispecific Ab","Day 30"
+"CD8
+TEMRA","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",472,"CD8.TEMRA",17451,0.0270471606211678,"Bispecific Ab","Day 30"
+"CD8
+TEX","Bispecific Ab_Day 30","Hyperexpanded (100 < X <= 1905)",61,"CD8.TEX",6159,0.00990420522812145,"Bispecific Ab","Day 30"
+"CD4
+CTL
+EOMES","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",795,"CD4.CTL_EOMES",10224,0.0777582159624413,"Other","Apheresis"
+"CD4
+CTL
+Exh","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",10,"CD4.CTL_Exh",831,0.0120336943441637,"Other","Apheresis"
+"CD4
+CTL
+GNLY","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",849,"CD4.CTL_GNLY",3389,0.250516376512246,"Other","Apheresis"
+"CD4
+Cycling","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",12,"CD4.Cycling",960,0.0125,"Other","Apheresis"
+"CD4
+Naive
+Like","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",34,"CD4.NaiveLike",10717,0.00317252962582812,"Other","Apheresis"
+"CD4
+Th17","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",1,"CD4.Th17",124,0.00806451612903226,"Other","Apheresis"
+"CD4
+Treg","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",1,"CD4.Treg",3363,0.000297353553374963,"Other","Apheresis"
+"CD8
+CM","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",345,"CD8.CM",15683,0.0219983421539246,"Other","Apheresis"
+"CD8
+Cycling","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",28,"CD8.Cycling",2140,0.0130841121495327,"Other","Apheresis"
+"CD8
+EM","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",604,"CD8.EM",32798,0.0184157570583572,"Other","Apheresis"
+"CD8
+TEMRA","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",278,"CD8.TEMRA",17451,0.0159303191794167,"Other","Apheresis"
+"CD8
+TEX","Other_Apheresis","Hyperexpanded (100 < X <= 1905)",120,"CD8.TEX",6159,0.0194836824159766,"Other","Apheresis"
+"CD4
+CTL
+EOMES","Other_Day 100","Hyperexpanded (100 < X <= 1905)",477,"CD4.CTL_EOMES",10224,0.0466549295774648,"Other","Day 100"
+"CD4
+CTL
+Exh","Other_Day 100","Hyperexpanded (100 < X <= 1905)",27,"CD4.CTL_Exh",831,0.0324909747292419,"Other","Day 100"
+"CD4
+CTL
+GNLY","Other_Day 100","Hyperexpanded (100 < X <= 1905)",159,"CD4.CTL_GNLY",3389,0.0469164945411626,"Other","Day 100"
+"CD4
+Cycling","Other_Day 100","Hyperexpanded (100 < X <= 1905)",4,"CD4.Cycling",960,0.00416666666666667,"Other","Day 100"
+"CD4
+Naive
+Like","Other_Day 100","Hyperexpanded (100 < X <= 1905)",8,"CD4.NaiveLike",10717,0.000746477559018382,"Other","Day 100"
+"CD8
+CM","Other_Day 100","Hyperexpanded (100 < X <= 1905)",617,"CD8.CM",15683,0.0393419626347,"Other","Day 100"
+"CD8
+Cycling","Other_Day 100","Hyperexpanded (100 < X <= 1905)",65,"CD8.Cycling",2140,0.0303738317757009,"Other","Day 100"
+"CD8
+EM","Other_Day 100","Hyperexpanded (100 < X <= 1905)",2226,"CD8.EM",32798,0.0678699920726874,"Other","Day 100"
+"CD8
+TEMRA","Other_Day 100","Hyperexpanded (100 < X <= 1905)",2084,"CD8.TEMRA",17451,0.119420090539224,"Other","Day 100"
+"CD8
+TEX","Other_Day 100","Hyperexpanded (100 < X <= 1905)",369,"CD8.TEX",6159,0.0599123234291281,"Other","Day 100"
+"CD4
+CTL
+EOMES","Other_Day 30","Hyperexpanded (100 < X <= 1905)",514,"CD4.CTL_EOMES",10224,0.0502738654147105,"Other","Day 30"
+"CD4
+CTL
+Exh","Other_Day 30","Hyperexpanded (100 < X <= 1905)",103,"CD4.CTL_Exh",831,0.123947051744886,"Other","Day 30"
+"CD4
+CTL
+GNLY","Other_Day 30","Hyperexpanded (100 < X <= 1905)",165,"CD4.CTL_GNLY",3389,0.0486869282974329,"Other","Day 30"
+"CD4
+Cycling","Other_Day 30","Hyperexpanded (100 < X <= 1905)",40,"CD4.Cycling",960,0.0416666666666667,"Other","Day 30"
+"CD4
+Naive
+Like","Other_Day 30","Hyperexpanded (100 < X <= 1905)",23,"CD4.NaiveLike",10717,0.00214612298217785,"Other","Day 30"
+"CD4
+Th17","Other_Day 30","Hyperexpanded (100 < X <= 1905)",1,"CD4.Th17",124,0.00806451612903226,"Other","Day 30"
+"CD8
+CM","Other_Day 30","Hyperexpanded (100 < X <= 1905)",679,"CD8.CM",15683,0.0432952878913473,"Other","Day 30"
+"CD8
+Cycling","Other_Day 30","Hyperexpanded (100 < X <= 1905)",198,"CD8.Cycling",2140,0.0925233644859813,"Other","Day 30"
+"CD8
+EM","Other_Day 30","Hyperexpanded (100 < X <= 1905)",3131,"CD8.EM",32798,0.0954631379962193,"Other","Day 30"
+"CD8
+TEMRA","Other_Day 30","Hyperexpanded (100 < X <= 1905)",1678,"CD8.TEMRA",17451,0.0961549481405077,"Other","Day 30"
+"CD8
+TEX","Other_Day 30","Hyperexpanded (100 < X <= 1905)",374,"CD8.TEX",6159,0.0607241435297938,"Other","Day 30"
+"CD4
+CTL
+EOMES","Bispecific Ab_Apheresis","Large (20 < X <= 100)",37,"CD4.CTL_EOMES",10224,0.0036189358372457,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+Exh","Bispecific Ab_Apheresis","Large (20 < X <= 100)",3,"CD4.CTL_Exh",831,0.0036101083032491,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+GNLY","Bispecific Ab_Apheresis","Large (20 < X <= 100)",10,"CD4.CTL_GNLY",3389,0.00295072292711714,"Bispecific Ab","Apheresis"
+"CD8
+CM","Bispecific Ab_Apheresis","Large (20 < X <= 100)",195,"CD8.CM",15683,0.0124338455652617,"Bispecific Ab","Apheresis"
+"CD8
+Cycling","Bispecific Ab_Apheresis","Large (20 < X <= 100)",47,"CD8.Cycling",2140,0.0219626168224299,"Bispecific Ab","Apheresis"
+"CD8
+EM","Bispecific Ab_Apheresis","Large (20 < X <= 100)",576,"CD8.EM",32798,0.0175620464662479,"Bispecific Ab","Apheresis"
+"CD8
+TEMRA","Bispecific Ab_Apheresis","Large (20 < X <= 100)",300,"CD8.TEMRA",17451,0.0171909919202338,"Bispecific Ab","Apheresis"
+"CD8
+TEX","Bispecific Ab_Apheresis","Large (20 < X <= 100)",174,"CD8.TEX",6159,0.0282513395031661,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 100","Large (20 < X <= 100)",22,"CD4.CTL_EOMES",10224,0.00215179968701095,"Bispecific Ab","Day 100"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 100","Large (20 < X <= 100)",6,"CD4.CTL_GNLY",3389,0.00177043375627029,"Bispecific Ab","Day 100"
+"CD4
+Naive
+Like","Bispecific Ab_Day 100","Large (20 < X <= 100)",1,"CD4.NaiveLike",10717,9.33096948772977e-05,"Bispecific Ab","Day 100"
+"CD8
+CM","Bispecific Ab_Day 100","Large (20 < X <= 100)",172,"CD8.CM",15683,0.0109672894216668,"Bispecific Ab","Day 100"
+"CD8
+Cycling","Bispecific Ab_Day 100","Large (20 < X <= 100)",1,"CD8.Cycling",2140,0.000467289719626168,"Bispecific Ab","Day 100"
+"CD8
+EM","Bispecific Ab_Day 100","Large (20 < X <= 100)",247,"CD8.EM",32798,0.00753094700896396,"Bispecific Ab","Day 100"
+"CD8
+TEMRA","Bispecific Ab_Day 100","Large (20 < X <= 100)",95,"CD8.TEMRA",17451,0.00544381410807404,"Bispecific Ab","Day 100"
+"CD8
+TEX","Bispecific Ab_Day 100","Large (20 < X <= 100)",12,"CD8.TEX",6159,0.00194836824159766,"Bispecific Ab","Day 100"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 30","Large (20 < X <= 100)",71,"CD4.CTL_EOMES",10224,0.00694444444444444,"Bispecific Ab","Day 30"
+"CD4
+CTL
+Exh","Bispecific Ab_Day 30","Large (20 < X <= 100)",12,"CD4.CTL_Exh",831,0.0144404332129964,"Bispecific Ab","Day 30"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 30","Large (20 < X <= 100)",22,"CD4.CTL_GNLY",3389,0.00649159043965772,"Bispecific Ab","Day 30"
+"CD4
+Cycling","Bispecific Ab_Day 30","Large (20 < X <= 100)",7,"CD4.Cycling",960,0.00729166666666667,"Bispecific Ab","Day 30"
+"CD4
+Naive
+Like","Bispecific Ab_Day 30","Large (20 < X <= 100)",3,"CD4.NaiveLike",10717,0.000279929084631893,"Bispecific Ab","Day 30"
+"CD4
+Th17","Bispecific Ab_Day 30","Large (20 < X <= 100)",1,"CD4.Th17",124,0.00806451612903226,"Bispecific Ab","Day 30"
+"CD4
+Treg","Bispecific Ab_Day 30","Large (20 < X <= 100)",1,"CD4.Treg",3363,0.000297353553374963,"Bispecific Ab","Day 30"
+"CD8
+CM","Bispecific Ab_Day 30","Large (20 < X <= 100)",225,"CD8.CM",15683,0.0143467448829943,"Bispecific Ab","Day 30"
+"CD8
+Cycling","Bispecific Ab_Day 30","Large (20 < X <= 100)",46,"CD8.Cycling",2140,0.0214953271028037,"Bispecific Ab","Day 30"
+"CD8
+EM","Bispecific Ab_Day 30","Large (20 < X <= 100)",580,"CD8.EM",32798,0.0176840051222636,"Bispecific Ab","Day 30"
+"CD8
+TEMRA","Bispecific Ab_Day 30","Large (20 < X <= 100)",380,"CD8.TEMRA",17451,0.0217752564322961,"Bispecific Ab","Day 30"
+"CD8
+TEX","Bispecific Ab_Day 30","Large (20 < X <= 100)",129,"CD8.TEX",6159,0.0209449585971749,"Bispecific Ab","Day 30"
+"CD4
+CTL
+EOMES","Other_Apheresis","Large (20 < X <= 100)",322,"CD4.CTL_EOMES",10224,0.0314945226917058,"Other","Apheresis"
+"CD4
+CTL
+Exh","Other_Apheresis","Large (20 < X <= 100)",13,"CD4.CTL_Exh",831,0.0156438026474128,"Other","Apheresis"
+"CD4
+CTL
+GNLY","Other_Apheresis","Large (20 < X <= 100)",306,"CD4.CTL_GNLY",3389,0.0902921215697846,"Other","Apheresis"
+"CD4
+Cycling","Other_Apheresis","Large (20 < X <= 100)",6,"CD4.Cycling",960,0.00625,"Other","Apheresis"
+"CD4
+Naive
+Like","Other_Apheresis","Large (20 < X <= 100)",20,"CD4.NaiveLike",10717,0.00186619389754596,"Other","Apheresis"
+"CD4
+Treg","Other_Apheresis","Large (20 < X <= 100)",1,"CD4.Treg",3363,0.000297353553374963,"Other","Apheresis"
+"CD8
+CM","Other_Apheresis","Large (20 < X <= 100)",677,"CD8.CM",15683,0.0431677612701651,"Other","Apheresis"
+"CD8
+Cycling","Other_Apheresis","Large (20 < X <= 100)",83,"CD8.Cycling",2140,0.038785046728972,"Other","Apheresis"
+"CD8
+EM","Other_Apheresis","Large (20 < X <= 100)",1619,"CD8.EM",32798,0.0493627660223184,"Other","Apheresis"
+"CD8
+MAIT","Other_Apheresis","Large (20 < X <= 100)",47,"CD8.MAIT",285,0.164912280701754,"Other","Apheresis"
+"CD8
+Naive
+Like","Other_Apheresis","Large (20 < X <= 100)",9,"CD8.NaiveLike",1595,0.00564263322884012,"Other","Apheresis"
+"CD8
+TEMRA","Other_Apheresis","Large (20 < X <= 100)",823,"CD8.TEMRA",17451,0.0471606211678414,"Other","Apheresis"
+"CD8
+TEX","Other_Apheresis","Large (20 < X <= 100)",338,"CD8.TEX",6159,0.0548790388050008,"Other","Apheresis"
+"CD4
+CTL
+EOMES","Other_Day 100","Large (20 < X <= 100)",513,"CD4.CTL_EOMES",10224,0.0501760563380282,"Other","Day 100"
+"CD4
+CTL
+Exh","Other_Day 100","Large (20 < X <= 100)",28,"CD4.CTL_Exh",831,0.0336943441636582,"Other","Day 100"
+"CD4
+CTL
+GNLY","Other_Day 100","Large (20 < X <= 100)",187,"CD4.CTL_GNLY",3389,0.0551785187370906,"Other","Day 100"
+"CD4
+Cycling","Other_Day 100","Large (20 < X <= 100)",8,"CD4.Cycling",960,0.00833333333333333,"Other","Day 100"
+"CD4
+Naive
+Like","Other_Day 100","Large (20 < X <= 100)",36,"CD4.NaiveLike",10717,0.00335914901558272,"Other","Day 100"
+"CD4
+Tfh","Other_Day 100","Large (20 < X <= 100)",1,"CD4.Tfh",2057,0.000486144871171609,"Other","Day 100"
+"CD4
+Treg","Other_Day 100","Large (20 < X <= 100)",3,"CD4.Treg",3363,0.000892060660124889,"Other","Day 100"
+"CD8
+CM","Other_Day 100","Large (20 < X <= 100)",970,"CD8.CM",15683,0.0618504112733533,"Other","Day 100"
+"CD8
+Cycling","Other_Day 100","Large (20 < X <= 100)",56,"CD8.Cycling",2140,0.0261682242990654,"Other","Day 100"
+"CD8
+EM","Other_Day 100","Large (20 < X <= 100)",2390,"CD8.EM",32798,0.0728702969693274,"Other","Day 100"
+"CD8
+MAIT","Other_Day 100","Large (20 < X <= 100)",21,"CD8.MAIT",285,0.0736842105263158,"Other","Day 100"
+"CD8
+TEMRA","Other_Day 100","Large (20 < X <= 100)",1777,"CD8.TEMRA",17451,0.101827975474185,"Other","Day 100"
+"CD8
+TEX","Other_Day 100","Large (20 < X <= 100)",539,"CD8.TEX",6159,0.0875142068517616,"Other","Day 100"
+"CD4
+CTL
+EOMES","Other_Day 30","Large (20 < X <= 100)",464,"CD4.CTL_EOMES",10224,0.0453834115805947,"Other","Day 30"
+"CD4
+CTL
+Exh","Other_Day 30","Large (20 < X <= 100)",18,"CD4.CTL_Exh",831,0.0216606498194946,"Other","Day 30"
+"CD4
+CTL
+GNLY","Other_Day 30","Large (20 < X <= 100)",141,"CD4.CTL_GNLY",3389,0.0416051932723517,"Other","Day 30"
+"CD4
+Cycling","Other_Day 30","Large (20 < X <= 100)",16,"CD4.Cycling",960,0.0166666666666667,"Other","Day 30"
+"CD4
+Naive
+Like","Other_Day 30","Large (20 < X <= 100)",19,"CD4.NaiveLike",10717,0.00177288420266866,"Other","Day 30"
+"CD8
+CM","Other_Day 30","Large (20 < X <= 100)",549,"CD8.CM",15683,0.0350060575145062,"Other","Day 30"
+"CD8
+Cycling","Other_Day 30","Large (20 < X <= 100)",226,"CD8.Cycling",2140,0.105607476635514,"Other","Day 30"
+"CD8
+EM","Other_Day 30","Large (20 < X <= 100)",2005,"CD8.EM",32798,0.0611317763278249,"Other","Day 30"
+"CD8
+MAIT","Other_Day 30","Large (20 < X <= 100)",2,"CD8.MAIT",285,0.00701754385964912,"Other","Day 30"
+"CD8
+TEMRA","Other_Day 30","Large (20 < X <= 100)",1158,"CD8.TEMRA",17451,0.0663572288121025,"Other","Day 30"
+"CD8
+TEX","Other_Day 30","Large (20 < X <= 100)",371,"CD8.TEX",6159,0.0602370514693944,"Other","Day 30"
+"CD4
+CTL
+EOMES","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",34,"CD4.CTL_EOMES",10224,0.00332550860719875,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+GNLY","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",25,"CD4.CTL_GNLY",3389,0.00737680731779286,"Bispecific Ab","Apheresis"
+"CD4
+Cycling","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",2,"CD4.Cycling",960,0.00208333333333333,"Bispecific Ab","Apheresis"
+"CD4
+Naive
+Like","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",2,"CD4.NaiveLike",10717,0.000186619389754595,"Bispecific Ab","Apheresis"
+"CD8
+CM","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",172,"CD8.CM",15683,0.0109672894216668,"Bispecific Ab","Apheresis"
+"CD8
+Cycling","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",27,"CD8.Cycling",2140,0.0126168224299065,"Bispecific Ab","Apheresis"
+"CD8
+EM","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",346,"CD8.EM",32798,0.0105494237453503,"Bispecific Ab","Apheresis"
+"CD8
+Naive
+Like","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",1,"CD8.NaiveLike",1595,0.000626959247648903,"Bispecific Ab","Apheresis"
+"CD8
+TEMRA","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",243,"CD8.TEMRA",17451,0.0139247034553894,"Bispecific Ab","Apheresis"
+"CD8
+TEX","Bispecific Ab_Apheresis","Medium (5 < X <= 20)",85,"CD8.TEX",6159,0.0138009417113168,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 100","Medium (5 < X <= 20)",61,"CD4.CTL_EOMES",10224,0.00596635367762128,"Bispecific Ab","Day 100"
+"CD4
+CTL
+Exh","Bispecific Ab_Day 100","Medium (5 < X <= 20)",1,"CD4.CTL_Exh",831,0.00120336943441637,"Bispecific Ab","Day 100"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 100","Medium (5 < X <= 20)",10,"CD4.CTL_GNLY",3389,0.00295072292711714,"Bispecific Ab","Day 100"
+"CD4
+Naive
+Like","Bispecific Ab_Day 100","Medium (5 < X <= 20)",16,"CD4.NaiveLike",10717,0.00149295511803676,"Bispecific Ab","Day 100"
+"CD4
+Tfh","Bispecific Ab_Day 100","Medium (5 < X <= 20)",5,"CD4.Tfh",2057,0.00243072435585805,"Bispecific Ab","Day 100"
+"CD4
+Treg","Bispecific Ab_Day 100","Medium (5 < X <= 20)",4,"CD4.Treg",3363,0.00118941421349985,"Bispecific Ab","Day 100"
+"CD8
+CM","Bispecific Ab_Day 100","Medium (5 < X <= 20)",193,"CD8.CM",15683,0.0123063189440796,"Bispecific Ab","Day 100"
+"CD8
+Cycling","Bispecific Ab_Day 100","Medium (5 < X <= 20)",3,"CD8.Cycling",2140,0.0014018691588785,"Bispecific Ab","Day 100"
+"CD8
+EM","Bispecific Ab_Day 100","Medium (5 < X <= 20)",195,"CD8.EM",32798,0.00594548448076102,"Bispecific Ab","Day 100"
+"CD8
+Naive
+Like","Bispecific Ab_Day 100","Medium (5 < X <= 20)",3,"CD8.NaiveLike",1595,0.00188087774294671,"Bispecific Ab","Day 100"
+"CD8
+TEMRA","Bispecific Ab_Day 100","Medium (5 < X <= 20)",111,"CD8.TEMRA",17451,0.00636066701048651,"Bispecific Ab","Day 100"
+"CD8
+TEX","Bispecific Ab_Day 100","Medium (5 < X <= 20)",21,"CD8.TEX",6159,0.00340964442279591,"Bispecific Ab","Day 100"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 30","Medium (5 < X <= 20)",198,"CD4.CTL_EOMES",10224,0.0193661971830986,"Bispecific Ab","Day 30"
+"CD4
+CTL
+Exh","Bispecific Ab_Day 30","Medium (5 < X <= 20)",37,"CD4.CTL_Exh",831,0.0445246690734055,"Bispecific Ab","Day 30"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 30","Medium (5 < X <= 20)",43,"CD4.CTL_GNLY",3389,0.0126881085866037,"Bispecific Ab","Day 30"
+"CD4
+Cycling","Bispecific Ab_Day 30","Medium (5 < X <= 20)",17,"CD4.Cycling",960,0.0177083333333333,"Bispecific Ab","Day 30"
+"CD4
+Naive
+Like","Bispecific Ab_Day 30","Medium (5 < X <= 20)",36,"CD4.NaiveLike",10717,0.00335914901558272,"Bispecific Ab","Day 30"
+"CD4
+Tfh","Bispecific Ab_Day 30","Medium (5 < X <= 20)",9,"CD4.Tfh",2057,0.00437530384054448,"Bispecific Ab","Day 30"
+"CD4
+Th17","Bispecific Ab_Day 30","Medium (5 < X <= 20)",2,"CD4.Th17",124,0.0161290322580645,"Bispecific Ab","Day 30"
+"CD4
+Treg","Bispecific Ab_Day 30","Medium (5 < X <= 20)",1,"CD4.Treg",3363,0.000297353553374963,"Bispecific Ab","Day 30"
+"CD8
+CM","Bispecific Ab_Day 30","Medium (5 < X <= 20)",190,"CD8.CM",15683,0.0121150290123063,"Bispecific Ab","Day 30"
+"CD8
+Cycling","Bispecific Ab_Day 30","Medium (5 < X <= 20)",53,"CD8.Cycling",2140,0.0247663551401869,"Bispecific Ab","Day 30"
+"CD8
+EM","Bispecific Ab_Day 30","Medium (5 < X <= 20)",388,"CD8.EM",32798,0.0118299896335142,"Bispecific Ab","Day 30"
+"CD8
+TEMRA","Bispecific Ab_Day 30","Medium (5 < X <= 20)",195,"CD8.TEMRA",17451,0.011174144748152,"Bispecific Ab","Day 30"
+"CD8
+TEX","Bispecific Ab_Day 30","Medium (5 < X <= 20)",118,"CD8.TEX",6159,0.0191589543757103,"Bispecific Ab","Day 30"
+"CD4
+CTL
+EOMES","Other_Apheresis","Medium (5 < X <= 20)",364,"CD4.CTL_EOMES",10224,0.0356025039123631,"Other","Apheresis"
+"CD4
+CTL
+Exh","Other_Apheresis","Medium (5 < X <= 20)",7,"CD4.CTL_Exh",831,0.00842358604091456,"Other","Apheresis"
+"CD4
+CTL
+GNLY","Other_Apheresis","Medium (5 < X <= 20)",222,"CD4.CTL_GNLY",3389,0.0655060489820006,"Other","Apheresis"
+"CD4
+Cycling","Other_Apheresis","Medium (5 < X <= 20)",17,"CD4.Cycling",960,0.0177083333333333,"Other","Apheresis"
+"CD4
+Naive
+Like","Other_Apheresis","Medium (5 < X <= 20)",43,"CD4.NaiveLike",10717,0.0040123168797238,"Other","Apheresis"
+"CD4
+Tfh","Other_Apheresis","Medium (5 < X <= 20)",4,"CD4.Tfh",2057,0.00194457948468644,"Other","Apheresis"
+"CD4
+Th17","Other_Apheresis","Medium (5 < X <= 20)",2,"CD4.Th17",124,0.0161290322580645,"Other","Apheresis"
+"CD4
+Treg","Other_Apheresis","Medium (5 < X <= 20)",1,"CD4.Treg",3363,0.000297353553374963,"Other","Apheresis"
+"CD8
+CM","Other_Apheresis","Medium (5 < X <= 20)",701,"CD8.CM",15683,0.0446980807243512,"Other","Apheresis"
+"CD8
+Cycling","Other_Apheresis","Medium (5 < X <= 20)",83,"CD8.Cycling",2140,0.038785046728972,"Other","Apheresis"
+"CD8
+EM","Other_Apheresis","Medium (5 < X <= 20)",1422,"CD8.EM",32798,0.0433563022135496,"Other","Apheresis"
+"CD8
+MAIT","Other_Apheresis","Medium (5 < X <= 20)",11,"CD8.MAIT",285,0.0385964912280702,"Other","Apheresis"
+"CD8
+Naive
+Like","Other_Apheresis","Medium (5 < X <= 20)",5,"CD8.NaiveLike",1595,0.00313479623824451,"Other","Apheresis"
+"CD8
+TEMRA","Other_Apheresis","Medium (5 < X <= 20)",778,"CD8.TEMRA",17451,0.0445819723798063,"Other","Apheresis"
+"CD8
+TEX","Other_Apheresis","Medium (5 < X <= 20)",279,"CD8.TEX",6159,0.0452995616171456,"Other","Apheresis"
+"CD4
+CTL
+EOMES","Other_Day 100","Medium (5 < X <= 20)",468,"CD4.CTL_EOMES",10224,0.0457746478873239,"Other","Day 100"
+"CD4
+CTL
+Exh","Other_Day 100","Medium (5 < X <= 20)",17,"CD4.CTL_Exh",831,0.0204572803850782,"Other","Day 100"
+"CD4
+CTL
+GNLY","Other_Day 100","Medium (5 < X <= 20)",168,"CD4.CTL_GNLY",3389,0.049572145175568,"Other","Day 100"
+"CD4
+Cycling","Other_Day 100","Medium (5 < X <= 20)",6,"CD4.Cycling",960,0.00625,"Other","Day 100"
+"CD4
+Naive
+Like","Other_Day 100","Medium (5 < X <= 20)",33,"CD4.NaiveLike",10717,0.00307921993095083,"Other","Day 100"
+"CD4
+Tfh","Other_Day 100","Medium (5 < X <= 20)",4,"CD4.Tfh",2057,0.00194457948468644,"Other","Day 100"
+"CD4
+Treg","Other_Day 100","Medium (5 < X <= 20)",2,"CD4.Treg",3363,0.000594707106749926,"Other","Day 100"
+"CD8
+CM","Other_Day 100","Medium (5 < X <= 20)",674,"CD8.CM",15683,0.0429764713383919,"Other","Day 100"
+"CD8
+Cycling","Other_Day 100","Medium (5 < X <= 20)",59,"CD8.Cycling",2140,0.0275700934579439,"Other","Day 100"
+"CD8
+EM","Other_Day 100","Medium (5 < X <= 20)",1637,"CD8.EM",32798,0.0499115799743887,"Other","Day 100"
+"CD8
+MAIT","Other_Day 100","Medium (5 < X <= 20)",2,"CD8.MAIT",285,0.00701754385964912,"Other","Day 100"
+"CD8
+Naive
+Like","Other_Day 100","Medium (5 < X <= 20)",6,"CD8.NaiveLike",1595,0.00376175548589342,"Other","Day 100"
+"CD8
+TEMRA","Other_Day 100","Medium (5 < X <= 20)",1002,"CD8.TEMRA",17451,0.0574179130135809,"Other","Day 100"
+"CD8
+TEX","Other_Day 100","Medium (5 < X <= 20)",320,"CD8.TEX",6159,0.0519564864426043,"Other","Day 100"
+"CD4
+CTL
+EOMES","Other_Day 30","Medium (5 < X <= 20)",467,"CD4.CTL_EOMES",10224,0.0456768388106416,"Other","Day 30"
+"CD4
+CTL
+Exh","Other_Day 30","Medium (5 < X <= 20)",44,"CD4.CTL_Exh",831,0.0529482551143201,"Other","Day 30"
+"CD4
+CTL
+GNLY","Other_Day 30","Medium (5 < X <= 20)",155,"CD4.CTL_GNLY",3389,0.0457362053703157,"Other","Day 30"
+"CD4
+Cycling","Other_Day 30","Medium (5 < X <= 20)",45,"CD4.Cycling",960,0.046875,"Other","Day 30"
+"CD4
+Naive
+Like","Other_Day 30","Medium (5 < X <= 20)",51,"CD4.NaiveLike",10717,0.00475879443874219,"Other","Day 30"
+"CD4
+Tfh","Other_Day 30","Medium (5 < X <= 20)",9,"CD4.Tfh",2057,0.00437530384054448,"Other","Day 30"
+"CD4
+Th17","Other_Day 30","Medium (5 < X <= 20)",1,"CD4.Th17",124,0.00806451612903226,"Other","Day 30"
+"CD4
+Treg","Other_Day 30","Medium (5 < X <= 20)",4,"CD4.Treg",3363,0.00118941421349985,"Other","Day 30"
+"CD8
+CM","Other_Day 30","Medium (5 < X <= 20)",614,"CD8.CM",15683,0.0391506727029267,"Other","Day 30"
+"CD8
+Cycling","Other_Day 30","Medium (5 < X <= 20)",159,"CD8.Cycling",2140,0.0742990654205608,"Other","Day 30"
+"CD8
+EM","Other_Day 30","Medium (5 < X <= 20)",2122,"CD8.EM",32798,0.0646990670162815,"Other","Day 30"
+"CD8
+MAIT","Other_Day 30","Medium (5 < X <= 20)",14,"CD8.MAIT",285,0.0491228070175439,"Other","Day 30"
+"CD8
+Naive
+Like","Other_Day 30","Medium (5 < X <= 20)",1,"CD8.NaiveLike",1595,0.000626959247648903,"Other","Day 30"
+"CD8
+TEMRA","Other_Day 30","Medium (5 < X <= 20)",1071,"CD8.TEMRA",17451,0.0613718411552347,"Other","Day 30"
+"CD8
+TEX","Other_Day 30","Medium (5 < X <= 20)",457,"CD8.TEX",6159,0.0742003572008443,"Other","Day 30"
+"CD4
+CTL
+EOMES","Bispecific Ab_Apheresis","Small (1 < X <= 5)",71,"CD4.CTL_EOMES",10224,0.00694444444444444,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+Exh","Bispecific Ab_Apheresis","Small (1 < X <= 5)",14,"CD4.CTL_Exh",831,0.0168471720818291,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+GNLY","Bispecific Ab_Apheresis","Small (1 < X <= 5)",38,"CD4.CTL_GNLY",3389,0.0112127471230451,"Bispecific Ab","Apheresis"
+"CD4
+Cycling","Bispecific Ab_Apheresis","Small (1 < X <= 5)",5,"CD4.Cycling",960,0.00520833333333333,"Bispecific Ab","Apheresis"
+"CD4
+Naive
+Like","Bispecific Ab_Apheresis","Small (1 < X <= 5)",19,"CD4.NaiveLike",10717,0.00177288420266866,"Bispecific Ab","Apheresis"
+"CD4
+Tfh","Bispecific Ab_Apheresis","Small (1 < X <= 5)",4,"CD4.Tfh",2057,0.00194457948468644,"Bispecific Ab","Apheresis"
+"CD4
+Treg","Bispecific Ab_Apheresis","Small (1 < X <= 5)",9,"CD4.Treg",3363,0.00267618198037467,"Bispecific Ab","Apheresis"
+"CD8
+CM","Bispecific Ab_Apheresis","Small (1 < X <= 5)",125,"CD8.CM",15683,0.00797041382388574,"Bispecific Ab","Apheresis"
+"CD8
+Cycling","Bispecific Ab_Apheresis","Small (1 < X <= 5)",19,"CD8.Cycling",2140,0.0088785046728972,"Bispecific Ab","Apheresis"
+"CD8
+EM","Bispecific Ab_Apheresis","Small (1 < X <= 5)",239,"CD8.EM",32798,0.00728702969693274,"Bispecific Ab","Apheresis"
+"CD8
+Naive
+Like","Bispecific Ab_Apheresis","Small (1 < X <= 5)",1,"CD8.NaiveLike",1595,0.000626959247648903,"Bispecific Ab","Apheresis"
+"CD8
+TEMRA","Bispecific Ab_Apheresis","Small (1 < X <= 5)",125,"CD8.TEMRA",17451,0.00716291330009742,"Bispecific Ab","Apheresis"
+"CD8
+TEX","Bispecific Ab_Apheresis","Small (1 < X <= 5)",71,"CD8.TEX",6159,0.0115278454294528,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 100","Small (1 < X <= 5)",55,"CD4.CTL_EOMES",10224,0.00537949921752739,"Bispecific Ab","Day 100"
+"CD4
+CTL
+Exh","Bispecific Ab_Day 100","Small (1 < X <= 5)",1,"CD4.CTL_Exh",831,0.00120336943441637,"Bispecific Ab","Day 100"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 100","Small (1 < X <= 5)",12,"CD4.CTL_GNLY",3389,0.00354086751254057,"Bispecific Ab","Day 100"
+"CD4
+Cycling","Bispecific Ab_Day 100","Small (1 < X <= 5)",1,"CD4.Cycling",960,0.00104166666666667,"Bispecific Ab","Day 100"
+"CD4
+Naive
+Like","Bispecific Ab_Day 100","Small (1 < X <= 5)",24,"CD4.NaiveLike",10717,0.00223943267705515,"Bispecific Ab","Day 100"
+"CD4
+Tfh","Bispecific Ab_Day 100","Small (1 < X <= 5)",11,"CD4.Tfh",2057,0.0053475935828877,"Bispecific Ab","Day 100"
+"CD4
+Th17","Bispecific Ab_Day 100","Small (1 < X <= 5)",1,"CD4.Th17",124,0.00806451612903226,"Bispecific Ab","Day 100"
+"CD4
+Treg","Bispecific Ab_Day 100","Small (1 < X <= 5)",22,"CD4.Treg",3363,0.00654177817424918,"Bispecific Ab","Day 100"
+"CD8
+CM","Bispecific Ab_Day 100","Small (1 < X <= 5)",156,"CD8.CM",15683,0.0099470764522094,"Bispecific Ab","Day 100"
+"CD8
+Cycling","Bispecific Ab_Day 100","Small (1 < X <= 5)",5,"CD8.Cycling",2140,0.00233644859813084,"Bispecific Ab","Day 100"
+"CD8
+EM","Bispecific Ab_Day 100","Small (1 < X <= 5)",141,"CD8.EM",32798,0.00429904262455028,"Bispecific Ab","Day 100"
+"CD8
+Naive
+Like","Bispecific Ab_Day 100","Small (1 < X <= 5)",1,"CD8.NaiveLike",1595,0.000626959247648903,"Bispecific Ab","Day 100"
+"CD8
+TEMRA","Bispecific Ab_Day 100","Small (1 < X <= 5)",61,"CD8.TEMRA",17451,0.00349550169044754,"Bispecific Ab","Day 100"
+"CD8
+TEX","Bispecific Ab_Day 100","Small (1 < X <= 5)",11,"CD8.TEX",6159,0.00178600422146452,"Bispecific Ab","Day 100"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 30","Small (1 < X <= 5)",252,"CD4.CTL_EOMES",10224,0.0246478873239437,"Bispecific Ab","Day 30"
+"CD4
+CTL
+Exh","Bispecific Ab_Day 30","Small (1 < X <= 5)",40,"CD4.CTL_Exh",831,0.0481347773766546,"Bispecific Ab","Day 30"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 30","Small (1 < X <= 5)",38,"CD4.CTL_GNLY",3389,0.0112127471230451,"Bispecific Ab","Day 30"
+"CD4
+Cycling","Bispecific Ab_Day 30","Small (1 < X <= 5)",44,"CD4.Cycling",960,0.0458333333333333,"Bispecific Ab","Day 30"
+"CD4
+Naive
+Like","Bispecific Ab_Day 30","Small (1 < X <= 5)",104,"CD4.NaiveLike",10717,0.00970420826723897,"Bispecific Ab","Day 30"
+"CD4
+Tfh","Bispecific Ab_Day 30","Small (1 < X <= 5)",27,"CD4.Tfh",2057,0.0131259115216334,"Bispecific Ab","Day 30"
+"CD4
+Th17","Bispecific Ab_Day 30","Small (1 < X <= 5)",5,"CD4.Th17",124,0.0403225806451613,"Bispecific Ab","Day 30"
+"CD4
+Treg","Bispecific Ab_Day 30","Small (1 < X <= 5)",18,"CD4.Treg",3363,0.00535236396074933,"Bispecific Ab","Day 30"
+"CD8
+CM","Bispecific Ab_Day 30","Small (1 < X <= 5)",167,"CD8.CM",15683,0.0106484728687113,"Bispecific Ab","Day 30"
+"CD8
+Cycling","Bispecific Ab_Day 30","Small (1 < X <= 5)",41,"CD8.Cycling",2140,0.0191588785046729,"Bispecific Ab","Day 30"
+"CD8
+EM","Bispecific Ab_Day 30","Small (1 < X <= 5)",376,"CD8.EM",32798,0.0114641136654674,"Bispecific Ab","Day 30"
+"CD8
+Naive
+Like","Bispecific Ab_Day 30","Small (1 < X <= 5)",5,"CD8.NaiveLike",1595,0.00313479623824451,"Bispecific Ab","Day 30"
+"CD8
+TEMRA","Bispecific Ab_Day 30","Small (1 < X <= 5)",182,"CD8.TEMRA",17451,0.0104292017649418,"Bispecific Ab","Day 30"
+"CD8
+TEX","Bispecific Ab_Day 30","Small (1 < X <= 5)",81,"CD8.TEX",6159,0.0131514856307842,"Bispecific Ab","Day 30"
+"CD4
+CTL
+EOMES","Other_Apheresis","Small (1 < X <= 5)",467,"CD4.CTL_EOMES",10224,0.0456768388106416,"Other","Apheresis"
+"CD4
+CTL
+Exh","Other_Apheresis","Small (1 < X <= 5)",20,"CD4.CTL_Exh",831,0.0240673886883273,"Other","Apheresis"
+"CD4
+CTL
+GNLY","Other_Apheresis","Small (1 < X <= 5)",155,"CD4.CTL_GNLY",3389,0.0457362053703157,"Other","Apheresis"
+"CD4
+Cycling","Other_Apheresis","Small (1 < X <= 5)",34,"CD4.Cycling",960,0.0354166666666667,"Other","Apheresis"
+"CD4
+Naive
+Like","Other_Apheresis","Small (1 < X <= 5)",351,"CD4.NaiveLike",10717,0.0327517029019315,"Other","Apheresis"
+"CD4
+Tfh","Other_Apheresis","Small (1 < X <= 5)",37,"CD4.Tfh",2057,0.0179873602333495,"Other","Apheresis"
+"CD4
+Th17","Other_Apheresis","Small (1 < X <= 5)",3,"CD4.Th17",124,0.0241935483870968,"Other","Apheresis"
+"CD4
+Treg","Other_Apheresis","Small (1 < X <= 5)",89,"CD4.Treg",3363,0.0264644662503717,"Other","Apheresis"
+"CD8
+CM","Other_Apheresis","Small (1 < X <= 5)",942,"CD8.CM",15683,0.0600650385768029,"Other","Apheresis"
+"CD8
+Cycling","Other_Apheresis","Small (1 < X <= 5)",109,"CD8.Cycling",2140,0.0509345794392523,"Other","Apheresis"
+"CD8
+EM","Other_Apheresis","Small (1 < X <= 5)",1478,"CD8.EM",32798,0.0450637233977682,"Other","Apheresis"
+"CD8
+MAIT","Other_Apheresis","Small (1 < X <= 5)",41,"CD8.MAIT",285,0.143859649122807,"Other","Apheresis"
+"CD8
+Naive
+Like","Other_Apheresis","Small (1 < X <= 5)",37,"CD8.NaiveLike",1595,0.0231974921630094,"Other","Apheresis"
+"CD8
+TEMRA","Other_Apheresis","Small (1 < X <= 5)",571,"CD8.TEMRA",17451,0.032720187954845,"Other","Apheresis"
+"CD8
+TEX","Other_Apheresis","Small (1 < X <= 5)",311,"CD8.TEX",6159,0.0504952102614061,"Other","Apheresis"
+"CD4
+CTL
+EOMES","Other_Day 100","Small (1 < X <= 5)",491,"CD4.CTL_EOMES",10224,0.0480242566510172,"Other","Day 100"
+"CD4
+CTL
+Exh","Other_Day 100","Small (1 < X <= 5)",27,"CD4.CTL_Exh",831,0.0324909747292419,"Other","Day 100"
+"CD4
+CTL
+GNLY","Other_Day 100","Small (1 < X <= 5)",110,"CD4.CTL_GNLY",3389,0.0324579521982886,"Other","Day 100"
+"CD4
+Cycling","Other_Day 100","Small (1 < X <= 5)",13,"CD4.Cycling",960,0.0135416666666667,"Other","Day 100"
+"CD4
+Naive
+Like","Other_Day 100","Small (1 < X <= 5)",164,"CD4.NaiveLike",10717,0.0153027899598768,"Other","Day 100"
+"CD4
+Tfh","Other_Day 100","Small (1 < X <= 5)",39,"CD4.Tfh",2057,0.0189596499756928,"Other","Day 100"
+"CD4
+Th17","Other_Day 100","Small (1 < X <= 5)",3,"CD4.Th17",124,0.0241935483870968,"Other","Day 100"
+"CD4
+Treg","Other_Day 100","Small (1 < X <= 5)",51,"CD4.Treg",3363,0.0151650312221231,"Other","Day 100"
+"CD8
+CM","Other_Day 100","Small (1 < X <= 5)",598,"CD8.CM",15683,0.0381304597334694,"Other","Day 100"
+"CD8
+Cycling","Other_Day 100","Small (1 < X <= 5)",70,"CD8.Cycling",2140,0.0327102803738318,"Other","Day 100"
+"CD8
+EM","Other_Day 100","Small (1 < X <= 5)",1130,"CD8.EM",32798,0.03445332032441,"Other","Day 100"
+"CD8
+MAIT","Other_Day 100","Small (1 < X <= 5)",1,"CD8.MAIT",285,0.00350877192982456,"Other","Day 100"
+"CD8
+Naive
+Like","Other_Day 100","Small (1 < X <= 5)",29,"CD8.NaiveLike",1595,0.0181818181818182,"Other","Day 100"
+"CD8
+TEMRA","Other_Day 100","Small (1 < X <= 5)",527,"CD8.TEMRA",17451,0.0301988424732107,"Other","Day 100"
+"CD8
+TEX","Other_Day 100","Small (1 < X <= 5)",195,"CD8.TEX",6159,0.031660983925962,"Other","Day 100"
+"CD4
+CTL
+EOMES","Other_Day 30","Small (1 < X <= 5)",678,"CD4.CTL_EOMES",10224,0.0663145539906103,"Other","Day 30"
+"CD4
+CTL
+Exh","Other_Day 30","Small (1 < X <= 5)",72,"CD4.CTL_Exh",831,0.0866425992779783,"Other","Day 30"
+"CD4
+CTL
+GNLY","Other_Day 30","Small (1 < X <= 5)",125,"CD4.CTL_GNLY",3389,0.0368840365889643,"Other","Day 30"
+"CD4
+Cycling","Other_Day 30","Small (1 < X <= 5)",86,"CD4.Cycling",960,0.0895833333333333,"Other","Day 30"
+"CD4
+Naive
+Like","Other_Day 30","Small (1 < X <= 5)",280,"CD4.NaiveLike",10717,0.0261267145656434,"Other","Day 30"
+"CD4
+Tfh","Other_Day 30","Small (1 < X <= 5)",103,"CD4.Tfh",2057,0.0500729217306757,"Other","Day 30"
+"CD4
+Th17","Other_Day 30","Small (1 < X <= 5)",4,"CD4.Th17",124,0.032258064516129,"Other","Day 30"
+"CD4
+Treg","Other_Day 30","Small (1 < X <= 5)",174,"CD4.Treg",3363,0.0517395182872435,"Other","Day 30"
+"CD8
+CM","Other_Day 30","Small (1 < X <= 5)",812,"CD8.CM",15683,0.0517758081999617,"Other","Day 30"
+"CD8
+Cycling","Other_Day 30","Small (1 < X <= 5)",160,"CD8.Cycling",2140,0.0747663551401869,"Other","Day 30"
+"CD8
+EM","Other_Day 30","Small (1 < X <= 5)",2138,"CD8.EM",32798,0.0651869016403439,"Other","Day 30"
+"CD8
+MAIT","Other_Day 30","Small (1 < X <= 5)",7,"CD8.MAIT",285,0.0245614035087719,"Other","Day 30"
+"CD8
+Naive
+Like","Other_Day 30","Small (1 < X <= 5)",25,"CD8.NaiveLike",1595,0.0156739811912226,"Other","Day 30"
+"CD8
+TEMRA","Other_Day 30","Small (1 < X <= 5)",816,"CD8.TEMRA",17451,0.0467594980230359,"Other","Day 30"
+"CD8
+TEX","Other_Day 30","Small (1 < X <= 5)",426,"CD8.TEX",6159,0.069167072576717,"Other","Day 30"
+"CD4
+CTL
+EOMES","Bispecific Ab_Apheresis","Single (0 < X <= 1)",124,"CD4.CTL_EOMES",10224,0.0121283255086072,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+Exh","Bispecific Ab_Apheresis","Single (0 < X <= 1)",24,"CD4.CTL_Exh",831,0.0288808664259928,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+GNLY","Bispecific Ab_Apheresis","Single (0 < X <= 1)",15,"CD4.CTL_GNLY",3389,0.00442608439067572,"Bispecific Ab","Apheresis"
+"CD4
+Cycling","Bispecific Ab_Apheresis","Single (0 < X <= 1)",38,"CD4.Cycling",960,0.0395833333333333,"Bispecific Ab","Apheresis"
+"CD4
+Naive
+Like","Bispecific Ab_Apheresis","Single (0 < X <= 1)",402,"CD4.NaiveLike",10717,0.0375104973406737,"Bispecific Ab","Apheresis"
+"CD4
+Tfh","Bispecific Ab_Apheresis","Single (0 < X <= 1)",90,"CD4.Tfh",2057,0.0437530384054448,"Bispecific Ab","Apheresis"
+"CD4
+Th17","Bispecific Ab_Apheresis","Single (0 < X <= 1)",7,"CD4.Th17",124,0.0564516129032258,"Bispecific Ab","Apheresis"
+"CD4
+Treg","Bispecific Ab_Apheresis","Single (0 < X <= 1)",151,"CD4.Treg",3363,0.0449003865596194,"Bispecific Ab","Apheresis"
+"CD8
+CM","Bispecific Ab_Apheresis","Single (0 < X <= 1)",149,"CD8.CM",15683,0.0095007332780718,"Bispecific Ab","Apheresis"
+"CD8
+Cycling","Bispecific Ab_Apheresis","Single (0 < X <= 1)",25,"CD8.Cycling",2140,0.0116822429906542,"Bispecific Ab","Apheresis"
+"CD8
+EM","Bispecific Ab_Apheresis","Single (0 < X <= 1)",195,"CD8.EM",32798,0.00594548448076102,"Bispecific Ab","Apheresis"
+"CD8
+MAIT","Bispecific Ab_Apheresis","Single (0 < X <= 1)",2,"CD8.MAIT",285,0.00701754385964912,"Bispecific Ab","Apheresis"
+"CD8
+Naive
+Like","Bispecific Ab_Apheresis","Single (0 < X <= 1)",56,"CD8.NaiveLike",1595,0.0351097178683386,"Bispecific Ab","Apheresis"
+"CD8
+TEMRA","Bispecific Ab_Apheresis","Single (0 < X <= 1)",94,"CD8.TEMRA",17451,0.00538651080167326,"Bispecific Ab","Apheresis"
+"CD8
+TEX","Bispecific Ab_Apheresis","Single (0 < X <= 1)",68,"CD8.TEX",6159,0.0110407533690534,"Bispecific Ab","Apheresis"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 100","Single (0 < X <= 1)",80,"CD4.CTL_EOMES",10224,0.00782472613458529,"Bispecific Ab","Day 100"
+"CD4
+CTL
+Exh","Bispecific Ab_Day 100","Single (0 < X <= 1)",6,"CD4.CTL_Exh",831,0.0072202166064982,"Bispecific Ab","Day 100"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 100","Single (0 < X <= 1)",23,"CD4.CTL_GNLY",3389,0.00678666273236943,"Bispecific Ab","Day 100"
+"CD4
+Cycling","Bispecific Ab_Day 100","Single (0 < X <= 1)",7,"CD4.Cycling",960,0.00729166666666667,"Bispecific Ab","Day 100"
+"CD4
+Naive
+Like","Bispecific Ab_Day 100","Single (0 < X <= 1)",149,"CD4.NaiveLike",10717,0.0139031445367174,"Bispecific Ab","Day 100"
+"CD4
+Tfh","Bispecific Ab_Day 100","Single (0 < X <= 1)",35,"CD4.Tfh",2057,0.0170150704910063,"Bispecific Ab","Day 100"
+"CD4
+Th17","Bispecific Ab_Day 100","Single (0 < X <= 1)",2,"CD4.Th17",124,0.0161290322580645,"Bispecific Ab","Day 100"
+"CD4
+Treg","Bispecific Ab_Day 100","Single (0 < X <= 1)",59,"CD4.Treg",3363,0.0175438596491228,"Bispecific Ab","Day 100"
+"CD8
+CM","Bispecific Ab_Day 100","Single (0 < X <= 1)",144,"CD8.CM",15683,0.00918191672511637,"Bispecific Ab","Day 100"
+"CD8
+Cycling","Bispecific Ab_Day 100","Single (0 < X <= 1)",4,"CD8.Cycling",2140,0.00186915887850467,"Bispecific Ab","Day 100"
+"CD8
+EM","Bispecific Ab_Day 100","Single (0 < X <= 1)",78,"CD8.EM",32798,0.00237819379230441,"Bispecific Ab","Day 100"
+"CD8
+Naive
+Like","Bispecific Ab_Day 100","Single (0 < X <= 1)",7,"CD8.NaiveLike",1595,0.00438871473354232,"Bispecific Ab","Day 100"
+"CD8
+TEMRA","Bispecific Ab_Day 100","Single (0 < X <= 1)",40,"CD8.TEMRA",17451,0.00229213225603117,"Bispecific Ab","Day 100"
+"CD8
+TEX","Bispecific Ab_Day 100","Single (0 < X <= 1)",16,"CD8.TEX",6159,0.00259782432213022,"Bispecific Ab","Day 100"
+"CD4
+CTL
+EOMES","Bispecific Ab_Day 30","Single (0 < X <= 1)",268,"CD4.CTL_EOMES",10224,0.0262128325508607,"Bispecific Ab","Day 30"
+"CD4
+CTL
+Exh","Bispecific Ab_Day 30","Single (0 < X <= 1)",37,"CD4.CTL_Exh",831,0.0445246690734055,"Bispecific Ab","Day 30"
+"CD4
+CTL
+GNLY","Bispecific Ab_Day 30","Single (0 < X <= 1)",39,"CD4.CTL_GNLY",3389,0.0115078194157569,"Bispecific Ab","Day 30"
+"CD4
+Cycling","Bispecific Ab_Day 30","Single (0 < X <= 1)",55,"CD4.Cycling",960,0.0572916666666667,"Bispecific Ab","Day 30"
+"CD4
+Naive
+Like","Bispecific Ab_Day 30","Single (0 < X <= 1)",288,"CD4.NaiveLike",10717,0.0268731921246618,"Bispecific Ab","Day 30"
+"CD4
+Tfh","Bispecific Ab_Day 30","Single (0 < X <= 1)",130,"CD4.Tfh",2057,0.0631988332523092,"Bispecific Ab","Day 30"
+"CD4
+Th17","Bispecific Ab_Day 30","Single (0 < X <= 1)",3,"CD4.Th17",124,0.0241935483870968,"Bispecific Ab","Day 30"
+"CD4
+Treg","Bispecific Ab_Day 30","Single (0 < X <= 1)",96,"CD4.Treg",3363,0.0285459411239964,"Bispecific Ab","Day 30"
+"CD8
+CM","Bispecific Ab_Day 30","Single (0 < X <= 1)",163,"CD8.CM",15683,0.010393419626347,"Bispecific Ab","Day 30"
+"CD8
+Cycling","Bispecific Ab_Day 30","Single (0 < X <= 1)",23,"CD8.Cycling",2140,0.0107476635514019,"Bispecific Ab","Day 30"
+"CD8
+EM","Bispecific Ab_Day 30","Single (0 < X <= 1)",264,"CD8.EM",32798,0.00804927129703031,"Bispecific Ab","Day 30"
+"CD8
+Naive
+Like","Bispecific Ab_Day 30","Single (0 < X <= 1)",34,"CD8.NaiveLike",1595,0.0213166144200627,"Bispecific Ab","Day 30"
+"CD8
+TEMRA","Bispecific Ab_Day 30","Single (0 < X <= 1)",100,"CD8.TEMRA",17451,0.00573033064007793,"Bispecific Ab","Day 30"
+"CD8
+TEX","Bispecific Ab_Day 30","Single (0 < X <= 1)",51,"CD8.TEX",6159,0.00828056502679006,"Bispecific Ab","Day 30"
+"CD4
+CTL
+EOMES","Other_Apheresis","Single (0 < X <= 1)",776,"CD4.CTL_EOMES",10224,0.0758998435054773,"Other","Apheresis"
+"CD4
+CTL
+Exh","Other_Apheresis","Single (0 < X <= 1)",69,"CD4.CTL_Exh",831,0.0830324909747292,"Other","Apheresis"
+"CD4
+CTL
+GNLY","Other_Apheresis","Single (0 < X <= 1)",97,"CD4.CTL_GNLY",3389,0.0286220123930363,"Other","Apheresis"
+"CD4
+Cycling","Other_Apheresis","Single (0 < X <= 1)",160,"CD4.Cycling",960,0.166666666666667,"Other","Apheresis"
+"CD4
+Naive
+Like","Other_Apheresis","Single (0 < X <= 1)",4551,"CD4.NaiveLike",10717,0.424652421386582,"Other","Apheresis"
+"CD4
+Tfh","Other_Apheresis","Single (0 < X <= 1)",522,"CD4.Tfh",2057,0.25376762275158,"Other","Apheresis"
+"CD4
+Th17","Other_Apheresis","Single (0 < X <= 1)",26,"CD4.Th17",124,0.209677419354839,"Other","Apheresis"
+"CD4
+Treg","Other_Apheresis","Single (0 < X <= 1)",791,"CD4.Treg",3363,0.235206660719596,"Other","Apheresis"
+"CD8
+CM","Other_Apheresis","Single (0 < X <= 1)",1760,"CD8.CM",15683,0.112223426640311,"Other","Apheresis"
+"CD8
+Cycling","Other_Apheresis","Single (0 < X <= 1)",166,"CD8.Cycling",2140,0.0775700934579439,"Other","Apheresis"
+"CD8
+EM","Other_Apheresis","Single (0 < X <= 1)",1495,"CD8.EM",32798,0.0455820476858345,"Other","Apheresis"
+"CD8
+MAIT","Other_Apheresis","Single (0 < X <= 1)",106,"CD8.MAIT",285,0.371929824561403,"Other","Apheresis"
+"CD8
+Naive
+Like","Other_Apheresis","Single (0 < X <= 1)",757,"CD8.NaiveLike",1595,0.474608150470219,"Other","Apheresis"
+"CD8
+TEMRA","Other_Apheresis","Single (0 < X <= 1)",455,"CD8.TEMRA",17451,0.0260730044123546,"Other","Apheresis"
+"CD8
+TEX","Other_Apheresis","Single (0 < X <= 1)",254,"CD8.TEX",6159,0.0412404611138172,"Other","Apheresis"
+"CD4
+CTL
+EOMES","Other_Day 100","Single (0 < X <= 1)",737,"CD4.CTL_EOMES",10224,0.072085289514867,"Other","Day 100"
+"CD4
+CTL
+Exh","Other_Day 100","Single (0 < X <= 1)",44,"CD4.CTL_Exh",831,0.0529482551143201,"Other","Day 100"
+"CD4
+CTL
+GNLY","Other_Day 100","Single (0 < X <= 1)",86,"CD4.CTL_GNLY",3389,0.0253762171732074,"Other","Day 100"
+"CD4
+Cycling","Other_Day 100","Single (0 < X <= 1)",85,"CD4.Cycling",960,0.0885416666666667,"Other","Day 100"
+"CD4
+Naive
+Like","Other_Day 100","Single (0 < X <= 1)",1680,"CD4.NaiveLike",10717,0.15676028739386,"Other","Day 100"
+"CD4
+Tfh","Other_Day 100","Single (0 < X <= 1)",358,"CD4.Tfh",2057,0.174039863879436,"Other","Day 100"
+"CD4
+Th17","Other_Day 100","Single (0 < X <= 1)",22,"CD4.Th17",124,0.17741935483871,"Other","Day 100"
+"CD4
+Treg","Other_Day 100","Single (0 < X <= 1)",552,"CD4.Treg",3363,0.164139161462979,"Other","Day 100"
+"CD8
+CM","Other_Day 100","Single (0 < X <= 1)",851,"CD8.CM",15683,0.0542625773130141,"Other","Day 100"
+"CD8
+Cycling","Other_Day 100","Single (0 < X <= 1)",91,"CD8.Cycling",2140,0.0425233644859813,"Other","Day 100"
+"CD8
+EM","Other_Day 100","Single (0 < X <= 1)",845,"CD8.EM",32798,0.0257637660832978,"Other","Day 100"
+"CD8
+MAIT","Other_Day 100","Single (0 < X <= 1)",13,"CD8.MAIT",285,0.0456140350877193,"Other","Day 100"
+"CD8
+Naive
+Like","Other_Day 100","Single (0 < X <= 1)",313,"CD8.NaiveLike",1595,0.196238244514107,"Other","Day 100"
+"CD8
+TEMRA","Other_Day 100","Single (0 < X <= 1)",363,"CD8.TEMRA",17451,0.0208011002234829,"Other","Day 100"
+"CD8
+TEX","Other_Day 100","Single (0 < X <= 1)",197,"CD8.TEX",6159,0.0319857119662283,"Other","Day 100"
+"CD4
+CTL
+EOMES","Other_Day 30","Single (0 < X <= 1)",1241,"CD4.CTL_EOMES",10224,0.121381064162754,"Other","Day 30"
+"CD4
+CTL
+Exh","Other_Day 30","Single (0 < X <= 1)",142,"CD4.CTL_Exh",831,0.170878459687124,"Other","Day 30"
+"CD4
+CTL
+GNLY","Other_Day 30","Single (0 < X <= 1)",136,"CD4.CTL_GNLY",3389,0.0401298318087932,"Other","Day 30"
+"CD4
+Cycling","Other_Day 30","Single (0 < X <= 1)",239,"CD4.Cycling",960,0.248958333333333,"Other","Day 30"
+"CD4
+Naive
+Like","Other_Day 30","Single (0 < X <= 1)",2372,"CD4.NaiveLike",10717,0.22133059624895,"Other","Day 30"
+"CD4
+Tfh","Other_Day 30","Single (0 < X <= 1)",666,"CD4.Tfh",2057,0.323772484200292,"Other","Day 30"
+"CD4
+Th17","Other_Day 30","Single (0 < X <= 1)",40,"CD4.Th17",124,0.32258064516129,"Other","Day 30"
+"CD4
+Treg","Other_Day 30","Single (0 < X <= 1)",1333,"CD4.Treg",3363,0.396372286648825,"Other","Day 30"
+"CD8
+CM","Other_Day 30","Single (0 < X <= 1)",1874,"CD8.CM",15683,0.119492444047695,"Other","Day 30"
+"CD8
+Cycling","Other_Day 30","Single (0 < X <= 1)",178,"CD8.Cycling",2140,0.0831775700934579,"Other","Day 30"
+"CD8
+EM","Other_Day 30","Single (0 < X <= 1)",2595,"CD8.EM",32798,0.0791206780901274,"Other","Day 30"
+"CD8
+MAIT","Other_Day 30","Single (0 < X <= 1)",18,"CD8.MAIT",285,0.0631578947368421,"Other","Day 30"
+"CD8
+Naive
+Like","Other_Day 30","Single (0 < X <= 1)",305,"CD8.NaiveLike",1595,0.191222570532915,"Other","Day 30"
+"CD8
+TEMRA","Other_Day 30","Single (0 < X <= 1)",904,"CD8.TEMRA",17451,0.0518021889863045,"Other","Day 30"
+"CD8
+TEX","Other_Day 30","Single (0 < X <= 1)",576,"CD8.TEX",6159,0.0935216755966878,"Other","Day 30"

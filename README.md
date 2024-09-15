@@ -6,13 +6,11 @@ This repository contains all code and data to reproduce the findings of Fandrei 
 
 ## :open_file_folder: Repository Structure
 
-- **`data/`**: the folder contains the clinical and molecular data necessary to reproduce the results of the study.
+- **`data/`**: the folder contains the data necessary to reproduce the results of the study.
 
-- **`figure_scripts/`**: the folder contains R scripts to reproduce results and figures of the study.
+- **`code/`**: the folder contains R scripts to reproduce results and figures of the study.
 
-- **`figures/`**: the folder contains the final png versions of the figures and supplementary figures.
-
-- **`tables/`**: the folder contains the tables and supplementary tables in excel format.
+- **`figures/`**: the folder contains the final png and PPT versions of the figures and supplementary figures.
 
 ## :rocket: Get started
 

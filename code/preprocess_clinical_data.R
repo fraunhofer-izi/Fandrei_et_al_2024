@@ -172,17 +172,9 @@ refractoriness_df <- refractoriness_df %>%
   )
 
 # Cytotoxicity
-cytotox_df <- cytotox_data[,-2] %>%
-  pivot_longer(!patient_id, names_to = "sample", values_to="perc") %>%
-  mutate(
-    timepoint = sapply(str_split(sample, "_"), function(x) x[2]),
-    condition = sapply(str_split(sample, "_"), function(x) x[1]),
-  ) %>%
-  left_join(clin_data[,c("patient_id", "therapy_before_cart", "status_before_cart", "Product", "30 day response")], by="patient_id") %>%
-  left_join(cytotox_data[,1:2], by="patient_id") %>%
-  mutate(
-    condition = factor(car::recode(condition, "'vRI'='U266+T'; 'nRI'='U266+CAR-T'"), levels=c("U266", "U266+T", "U266+CAR-T"))
-  )
+cytotox_df <- cytotox_data %>%
+  pivot_longer(c(2:5)) %>%
+  left_join(clin_data[,c("patient_id", "therapy_before_cart", "status_before_cart", "Product", "30 day response")], by="patient_id")
 
 # Immune subsets
 immune_df <- immune_status %>%

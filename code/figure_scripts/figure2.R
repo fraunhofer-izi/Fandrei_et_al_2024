@@ -353,6 +353,34 @@ crs_long <- crs_df[,c(1, 5:57)] %>%
   left_join(clin_data[,c("sample_id", "Product", "therapy_before_cart")], by="sample_id") %>%
   separate(crs_marker, c("marker", "Day"), sep="_", remove=F)
 
+# Time of measurements
+crs_long %>%
+  filter(!is.na(value)) %>%
+  group_by(sample_id, marker) %>%
+  slice_tail(n = 1) %>%
+  filter(marker == "CRP") %>%
+  mutate(day = as.numeric(gsub("d", "", Day))) %>%
+  ungroup() %>% 
+  summarize(median = median(day, na.rm=F), min = min(day), max=max(day))
+
+crs_long %>%
+  filter(!is.na(value)) %>%
+  group_by(sample_id, marker) %>%
+  slice_tail(n = 1) %>%
+  filter(marker == "PCT") %>%
+  mutate(day = as.numeric(gsub("d", "", Day))) %>%
+  ungroup() %>% 
+  summarize(median = median(day, na.rm=F), min = min(day), max=max(day))
+
+crs_long %>%
+  filter(!is.na(value)) %>%
+  group_by(sample_id, marker) %>%
+  slice_tail(n = 1) %>%
+  filter(marker == "il6") %>%
+  mutate(day = as.numeric(gsub("\\-.+", "", gsub("d", "", Day)))) %>%
+  ungroup() %>%
+  summarize(median = median(day, na.rm=F), min = min(day), max=max(day))
+
 inflammation_violins <- crs_long %>% 
   mutate(marker = car::recode(marker, "'il6'='IL6 (pg/mL)'; 'CRP'='CRP (mg/L)'; 'PCT'='PCT (mg/L)'", as.factor=T, levels=c("CRP (mg/L)", "PCT (mg/L)", "IL6 (pg/mL)"))) %>%
   filter(!is.na(value)) %>%
@@ -365,7 +393,6 @@ inflammation_violins <- crs_long %>%
   mytheme_grid(13) +
   theme(
     panel.grid.major.x = element_blank(),
-    # panel.grid.minor.y = element_blank(),
     legend.position = "none",
     axis.title.x = element_blank(),
     axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)

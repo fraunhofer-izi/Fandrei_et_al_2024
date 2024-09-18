@@ -1,4 +1,5 @@
-.cran_packages = c("tidyverse", "psych", "cowplot", "DescTools", "ggalluvial")
+.cran_packages = c("tidyverse", "psych", "cowplot", "DescTools", "ggalluvial", 
+                   "ggtext")
 
 ## Loading library
 for (pack in .cran_packages) {
@@ -23,6 +24,7 @@ bridging.obj = read_rds("data/bridging_obj.RDS")
 clin_data = bridging.obj$clin_data
 immune_df = bridging.obj$immune_df
 t_cells = bridging.obj$t_cells
+cytotox_df = bridging.obj$cytotox
 
 sc.pl = read.csv(
   "data/cpc_data.csv"
@@ -71,7 +73,7 @@ corr_data = corr_df %>%
   ) %>%
   mutate(x=min_x + (max_x-min_x)/2)
 
-corr_df %>%
+corr_scatter = corr_df %>%
   mutate(Day = factor(Day, levels=c("Day 0", "Day 7", "Day 14", "Day 30", "Day 100"))) %>%
   ggplot(aes(x=log10(no_copies+1), y=log10(CD3_CAR_abs+1), color=Product )) +
   geom_smooth(method='lm', formula= y~x, alpha=.75, se=T, fill="grey90") +
@@ -79,21 +81,48 @@ corr_df %>%
   mytheme_grid(13) +
   theme(
     legend.position = "bottom",
+    axis.title.y = element_markdown()
   ) +
   scale_color_manual(name="CAR-T Product", values=pal_product) +
   geom_text(data=corr_data, aes(x=x, y=4.9, label=paste0("r=", signif(COR,2), ", p=", signif(pval, 2))), color="black") +
   scale_y_continuous(expand=c(0.12,0)) +
-  ylab("log(x+1) CD3+ CAR G/l") +
-  xlab("log(x+1) copies per 1000 cells") +
-  facet_wrap(Product~Day, scales="free", ncol=4)
+  ylab(bquote("\\# log(x+1) CD3+CAR+ 10<sup>6</sup>/mL")) +
+  xlab("# log(x+1) copies per 1000 cells") +
+  facet_grid2(Product~Day, scales="free", independent = "all")
 
 ggsave2(
   "figures/supplement/corr_scatter.png",
+  corr_scatter,
   width = 150, height = 100, dpi = 400, bg = "white", units = "mm", scale = 1.5
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Fig. S3: CAR-T expansion by flow cytometry using absolute counts in the
+# Fig. S3: Impact of bridging therapy on lymphodepletion
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ldp_boxes = t_cells_abs %>%
+  mutate(Day = factor(car::recode(Day, "'Leukapheresis' = 'LA'"), levels=c("LA", "Day 0", "Day 7", "Day 14", "Day 30", "Day 100"))) %>%
+  filter(group != "Treg") %>%
+  ggplot(aes(x=Day, y = value, fill = bridging_bin)) +
+  geom_boxplot(alpha=.8, outlier.size=.4, linewidth=.4) +
+  facet_wrap(~ tcell_subset, scales = "free_y", ncol=2) +
+  scale_fill_manual(name="Bridging", values=c(anno_nejm[[1]], "grey60")) +
+  mytheme_grid(11) +
+  theme(axis.text.x = element_text(angle = 45, hjust=1, vjust=1), legend.position="bottom", panel.grid.major.x = element_blank(),
+        axis.title.y = element_markdown()) +
+  geom_pwc(label="p.signif", hide.ns="p") +
+  scale_y_continuous(expand=c(0.2,0), trans="log10") +
+  ylab("Cell count 10<sup>6</sup>/mL") +
+  xlab("Time point")
+
+ggsave2(
+  "figures/supplement/ldp_boxes.png",
+  ldp_boxes,
+  width = 85, height = 130, dpi = 400, bg = "white", units = "mm", scale = 1.7
+)
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Fig. S4: CAR-T expansion by flow cytometry using absolute counts in the
 # bridging therapy groups
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -110,11 +139,12 @@ pl_car_abs = immune_df %>%
     legend.position = "bottom",
     axis.text.x = element_blank(),
     axis.ticks.x = element_blank(),
-    axis.title.x = element_blank()
+    axis.title.x = element_blank(),
+    axis.title.y = element_markdown()
   ) +
   facet_grid(.~Day, scales="free_y") +
-  ylab("# CAR-T cells (10^6/mL)") +
-  scale_fill_manual(values=anno_nejm) +
+  ylab("Number of CAR-T cells 10<sup>6</sup>/mL") +
+  scale_fill_manual(name = "Bridging", values=anno_nejm) +
   stat_compare_means(label="p.format",hide.ns=F, size=3.5, hjust=0.3, vjust=0) +
   geom_pwc(method="wilcox.test", label = "p.signif", hide.ns=T, label.size=5.5) +
   scale_y_log10()
@@ -126,26 +156,33 @@ ggsave2(
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Fig. S4: Impact of bridging therapy on lymphodepletion
+# Fig. S5: Proportion of CAR-T cells in samples extracted on day 7 after CAR-T
+# infusion for in vitro cytotoxicity assay
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-ldp_boxes = t_cells_abs %>%
-  mutate(Day = factor(car::recode(Day, "'Leukapheresis' = 'LA'"), levels=c("LA", "Day 0", "Day 7", "Day 14", "Day 30", "Day 100"))) %>%
-  filter(group != "Treg") %>%
-  ggplot(aes(x=Day, y = value, fill = bridging_bin)) +
-  geom_boxplot(alpha=.8) +
-  facet_wrap(group ~ tcell_subset, scales = "free_y", nrow=2) +
-  scale_fill_manual(name="Bridging", values=c(anno_nejm[[1]], "grey60")) +
-  mytheme_grid(12) +
-  scale_y_log10() +
-  theme(axis.text.x = element_text(angle = 45, hjust=1, vjust=1), legend.position="bottom", panel.grid.major.x = element_blank()) +
+cytotox_prop_cart =  cytotox_df %>%
+  filter(name == "percentage_cart") %>%
+  ggplot(aes(x=therapy_before_cart, y=value, fill=therapy_before_cart)) +
+  geom_boxplot(alpha=.75, outlier.shape = NA) +
+  geom_point(color="grey10", position = position_jitterdodge(jitter.width=0.4), alpha=.7, size=1.3) +
+  mytheme_grid(13) +
+  theme(
+    legend.position = "right",
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(angle=45, hjust=1, vjust=1),
+    panel.grid.major.x = element_blank(),
+    plot.title = element_text(face="bold")
+  ) +
+  scale_fill_manual("Bridging", values=anno_nejm) +
+  stat_compare_means(label = "p.format", vjust=1) +
   geom_pwc(label="p.signif", hide.ns="p") +
-  ylab("Cell count (10^6/mL)")
+  ylab("Proportion (%) of CAR-T cells") +
+  ggtitle("Proportion of CAR-T cells in expanded PB samples collected\n7d after infusion")
 
 ggsave2(
-  "figures/supplement/ldp_boxes.png",
-  ldp_boxes,
-  width = 210, height = 130, dpi = 400, bg = "white", units = "mm", scale = 1.5
+  "figures/supplement/cytotox_prop_cart.png",
+  cytotox_prop_cart,
+  height=75, width=100, units = "mm", dpi=400, scale=1.6, bg="white"
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -169,22 +206,107 @@ treg_subset_violins <- treg_df %>%
     axis.text.x = element_text(angle=45, hjust=1),
     axis.title.x = element_blank()
   ) +
-  facet_grid(tcell_subset~Day) +
+  facet_grid2(tcell_subset~Day, scales = "free_y") +
   ylab("%  of total Treg") +
   scale_fill_manual(name="Bridging", values=anno_nejm) +
-  scale_y_continuous(breaks=pretty_breaks(n=4)) +
+  scale_y_continuous(expand = c(0.05, 0), breaks=pretty_breaks(n=4)) +
   stat_compare_means(label="p.format", vjust=-3) +
   geom_pwc(method="wilcox.test", label = "p.signif", hide.ns=T, vjust=0.5, label.size=5) +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
   guides(fill = guide_legend(nrow = 1))
 
 ggsave2(
-  "../figures/supplementary_figures/treg_subsets.png",
+  "figures/supplement/treg_subsets.png",
+  treg_subset_violins,
   width=185, height=120, dpi=400, units="mm", bg="white", scale=1.3
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Fig. S6: T cell subset alluvials
+# Fig. S6: T cell subsets according to remission status before CAR-T
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+# Prepare
+recode_tcells <- "'CD4 Thymusemi %' = 'CD4+ thymic emigrants'; 'naive CD4 %' = 'Naive CD4+'; 'CD4 Eff-Memory %' = 'CD4+ effector memory';
+    'CD4 central Memory %' = 'CD4+ central memory'; 'CD4 Effektorzellen %' = 'CD4+ effector'; 'CD8 Thymusemigrants %' = 'CD8+ thymic emigrants';
+    'naive CD8 %' = 'Naive CD8+'; 'CD8 Eff-Memory %' ='CD8+ effector memory'; 'CD8 central Memory %' = 'CD8+ central memory';
+    'CD8 Effektorzellen %' = 'CD8+ effector'; 'Tregs %' = 'Tregs';  'naive Tregs %' = 'Naive Tregs';
+    'Memory Tregs %'= 'Memory Tregs'"
+
+tcell.df_long = tcell.df %>%
+  pivot_longer(cols = c(4:ncol(tcell.df)), names_to = "tcell_subset") %>%
+  mutate(group = case_when(
+    grepl("CD4", tcell_subset) ~ "CD4",
+    grepl("CD8", tcell_subset) ~ "CD8",
+    grepl("Treg", tcell_subset) ~ "Treg"
+  ))
+
+pretty_unexpanded <- function(x,n=3){
+  #expand_limit
+  if(x[1]<=0){
+    r2 <- x + c(-x[1],x[1])
+  }else{
+    r2 <- x + c((x[2]-x[1])*0.04545455,-(x[2]-x[1])*0.04545455)
+  }
+  pout <-  pretty(r2,n) 
+  pout
+}
+
+pl_status_before_cart_cd4 = tcell.df_long %>%
+  filter(group == "CD4", grepl("?%", tcell_subset)) %>%
+  mutate(tcell_subset = car::recode(tcell_subset, recode_tcells),
+         Day = factor(car::recode(Day, "'Leukapheresis' = 'LA'"),
+           levels=c("LA", "Day 0", "Day 7", "Day 14", "Day 30", "Day 100"))) %>%
+  left_join(clin_data[,c("patient_id", "status_before_cart")]) %>%
+  ggplot(aes(x=status_before_cart, y=100*value, fill=status_before_cart)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(), size=.8, color="grey20", alpha=.8) +
+  facet_grid2(tcell_subset ~ Day, scales="free_y") +
+  mytheme_grid(12) +
+  theme(panel.grid.major.x = element_blank(), legend.position = "bottom", axis.text.x = element_text(angle=45, hjust=1, vjust=1),
+        plot.tag = element_text(face="bold", family = "serif", size = rel(2))) +
+  xlab("Remission status before CAR-T") +
+  scale_fill_manual(name="", values=palette_response) +
+  geom_pwc(label="p.signif", hide.ns="p") +
+  stat_compare_means(label="p.format", vjust=-2.25, ) +
+  scale_y_continuous(expand = c(0.36, 0), limits = c(0, NA), breaks = pretty_unexpanded) +
+  ylab("Proportion (%) of CD4+ T cells") +
+  labs(tag = 'A)')
+
+ggsave2(
+  "figures/supplement/pl_status_before_cart_cd4.png",
+  pl_status_before_cart_cd4,
+  height=205, width=160, units="mm", bg="white", dpi=400, scale=1.4
+)
+
+pl_status_before_cart_cd8 = tcell.df_long %>%
+  filter(group == "CD8", grepl("?%", tcell_subset)) %>%
+  mutate(tcell_subset = car::recode(tcell_subset, recode_tcells),
+         Day = factor(car::recode(Day, "'Leukapheresis' = 'LA'"),
+                      levels=c("LA", "Day 0", "Day 7", "Day 14", "Day 30", "Day 100"))) %>%
+  left_join(clin_data[,c("patient_id", "status_before_cart")]) %>%
+  ggplot(aes(x=status_before_cart, y=100*value, fill=status_before_cart)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(), size=.8, color="grey20", alpha=.8) +
+  facet_grid2(tcell_subset ~ Day, scales="free_y") +
+  mytheme_grid(12) +
+  theme(panel.grid.major.x = element_blank(), legend.position = "bottom", axis.text.x = element_text(angle=45, hjust=1, vjust=1),
+        plot.tag = element_text(face="bold", family = "serif", size = rel(2))) +
+  xlab("Remission status before CAR-T") +
+  scale_fill_manual(name="", values=palette_response) +
+  geom_pwc(label="p.signif", hide.ns="p") +
+  stat_compare_means(label="p.format", vjust=-2.25) +
+  scale_y_continuous(expand=c(0.36, 0), breaks=pretty_unexpanded) +
+  ylab("Proportion (%) of CD8+ T cells") +
+  labs(tag = 'B)')
+
+ggsave2(
+  "figures/supplement/pl_status_before_cart_cd8.png",
+  pl_status_before_cart_cd8,
+  height=205, width=160, units="mm", bg="white", dpi=400, scale=1.4
+)
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Fig. S7: T cell subset alluvials
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # T cell subsets
@@ -215,10 +337,10 @@ alluvial_t_cells = t_cells %>%
   summarize(mean = mean(100*value)) %>%
   ggplot(aes(x = Day, y = mean, alluvium = tcell_subset)) +
   geom_alluvium(aes(fill = tcell_subset, colour = tcell_subset), alpha = .9, decreasing = F, color = "grey20") +
-  theme( axis.title.x = element_blank(), legend.position = "top", axis.text.x = element_text(angle=45, hjust=1, vjust=1)) +
+  theme( axis.title.x = element_blank(), legend.position = "bottom", axis.text.x = element_text(angle=45, hjust=1, vjust=1)) +
   scale_fill_manual(name = "T cell subset", values = t_pal) +
   facet_grid(group ~ therapy_before_cart, scales = "fixed") +
-  ylab("Proportion") +
+  ylab("Proportion (%)") +
   guides(fill = guide_legend(ncol=2), color = guide_legend(ncol=2))
 
 ggsave2(
@@ -228,7 +350,7 @@ ggsave2(
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Fig. S7: PD-1 violins - all comparison
+# Fig. S8: PD-1 violins - all comparison
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # Compare each timepoint
@@ -269,7 +391,7 @@ ggsave2(
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Fig. S8: Numbers of circulating plasma cells
+# Fig. S11: Numbers of circulating plasma cells
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 sc.pl = sc.pl %>% 
@@ -299,3 +421,4 @@ ggsave2(
   numbers_of_cpc,
   height=70, width=110, units = "mm", bg="white", dpi=400, scale=1.5
 )
+

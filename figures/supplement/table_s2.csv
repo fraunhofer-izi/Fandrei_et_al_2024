@@ -1,53 +1,37 @@
-patient_id,therapy_before_cart,treatment_before_apheresis
-Patient001,SLAMF7,EloPCD
-Patient006,Chemotherapy,BendaKd
-Patient007,CD38,DaraPd
-Patient008,CD38,DaraPd
-Patient009,Chemotherapy,HD Melphalan + ASCT
-Patient010,SLAMF7,EloPD
-Patient011,Chemotherapy,Selinexor
-Patient012,CD38,IsaPd
-Patient013,CD38,DRd
-Patient014,CD38,IsaKd
-Patient015,Chemotherapy,KCD
-Patient016,Chemotherapy,PACE+VTD
-Patient017,CD38,IsaPd
-Patient018,SLAMF7,EloPd
-Patient019,Chemotherapy,FVD
-Patient020,Chemotherapy,KCD
-Patient021,CD38,IsaD
-Patient022,Bispecific Ab,Teclistamab
-Patient023,CD38,IsaKd
-Patient024,Bispecific Ab,Teclistamab
-Patient025,Chemotherapy,KCD
-Patient026,CD38,IsaKd
-Patient027,CD38,IsaKCd
-Patient028,SLAMF7,EloPd
-Patient029,CD38,IsaD
-Patient030,CD38,DaraKd
-Patient031,Bispecific Ab,Teclistamab
-Patient032,Bispecific Ab,Teclistamab
-Patient033,Bispecific Ab,Teclistamab
-Patient034,CD38,IsaKd
-Patient035,SLAMF7,EloPd
-Patient036,Chemotherapy,CED
-Patient037,SLAMF7,EloPd
-Patient038,CD38,IsaKd
-Patient039,Chemotherapy,FVD
-Patient040,SLAMF7,EloPd
-Patient041,Chemotherapy,Trametinib + Dabrafenib
-Patient042,CD38,DaraRD
-Patient043,Bispecific Ab,Talquetamab
-Patient044,Chemotherapy,BPV
-Patient045,Chemotherapy,CED
-Patient046,CD38,DaraVd
-Patient047,CD38,IsaKd
-Patient048,Bispecific Ab,Talquetamab
-Patient049,CD38,IsaKd
-Patient050,Bispecific Ab,Talquetamab
-Patient051,Chemotherapy,KMezD
-Patient052,Bispecific Ab,Talquetamab
-Patient053,Chemotherapy,KD
-Patient054,CD38,Dara-VTD
-Patient055,Bispecific Ab,Talquetamab
-Patient056,SLAMF7,EloPd
+patient_id,value
+Patient001,4.7
+Patient009,68.9
+Patient010,3.98
+Patient011,26.5
+Patient012,27.4
+Patient013,6.84
+Patient014,31.6
+Patient015,17.3
+Patient016,20.5
+Patient017,45.4
+Patient018,11.8
+Patient019,22.3
+Patient020,8.28
+Patient021,51.2
+Patient022,23.7
+Patient024,42.1
+Patient025,29
+Patient026,53.6
+Patient027,29.3
+Patient028,21.8
+Patient029,18.1
+Patient030,57.1
+Patient031,30.3
+Patient032,35.7
+Patient033,25.3
+Patient033,75.9
+Patient034,17.4
+Patient035,44.2
+Patient036,5.04
+Patient040,2.64
+Patient041,14.8
+Patient042,15.9
+Patient044,14.9
+Patient045,3.2
+Patient046,1.4
+Patient048,1.7

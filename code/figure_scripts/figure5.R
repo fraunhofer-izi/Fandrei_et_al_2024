@@ -1,4 +1,5 @@
-.cran_packages = c("tidyverse", "psych", "cowplot", "DescTools", "readxl")
+.cran_packages = c("tidyverse", "psych", "cowplot", "DescTools", "readxl",
+                   "ggtext")
 
 ## Loading library
 for (pack in .cran_packages) {
@@ -48,11 +49,12 @@ tregs_bridging = t_cells_abs_df %>%
   theme(
     panel.grid.major.x = element_blank(),
     legend.position = "bottom",
-    axis.text.x = element_text(angle=45, hjust=1, vjust=1)
+    axis.text.x = element_text(angle=45, hjust=1, vjust=1),
+    axis.title.y = element_markdown()
   ) +
   facet_grid(.~paste0("Treg")) +
   xlab("Time point") +
-  ylab("# cells 10^6/ml") +
+  ylab("Number of cells 10<sup>6</sup>/mL") +
   scale_fill_manual(name="Bridging", values=anno_nejm) +
   scale_y_log10(expand = c(0.1,0)) +
   stat_compare_means(label="p.format")
@@ -113,8 +115,7 @@ FC.df = by_group %>%
 
 res = left_join(pval_df, FC.df, by=c("Day", "tcell_subset"))
 
-cd4_diff = res %>%
-  filter(celltype_short == "CD4") %>%
+tcell_sub_diff = res %>%
   mutate(tcell_subset = factor(tcell_subset, levels = rev(c("CD4 thymic emigrants", "naive CD4", "CD4 central memory", "CD4 effector memory",
                                                             "CD4 effector", "CD8 thymic emigrants", "naive CD8", "CD8 central memory", "CD8 effector memory", "CD8 effector"))),
            Day = factor(car::recode(Day, "'Leukapheresis' = 'LA'"),
@@ -126,29 +127,15 @@ cd4_diff = res %>%
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank() ) +
   theme( axis.title = element_blank(), plot.title = element_text(face="bold")) +
   scale_fill_scico(palette="vik", begin =.1, end =.9, name = "Z-score\n(Bispecific Ab \nvs Other)", midpoint=0) +
-  facet_grid(.~paste0("CD4+ subsets"))
-
-cd8_diff = res %>%
-  filter(celltype_short == "CD8") %>%
-  mutate(tcell_subset = factor(tcell_subset, levels = rev(c("CD4 thymic emigrants", "naive CD4", "CD4 central memory", "CD4 effector memory",
-                                                            "CD4 effector", "CD8 thymic emigrants", "naive CD8", "CD8 central memory", "CD8 effector memory", "CD8 effector"))),
-         Day = factor(car::recode(Day, "'Leukapheresis' = 'LA'"),
-                      levels=c("LA", "Day 0", "Day 7", "Day 14", "Day 30", "Day 100")
-         )) %>%
-  ggplot(aes(x=Day, y=tcell_subset, fill = z_score)) +
-  geom_tile(alpha=.9) +
-  geom_text(data = subset(res, p<0.05), aes(label = p.signif), size=5) +
-  theme(axis.text.x = element_text(angle = 45, hjust=1, vjust=1) ) +
-  theme( axis.title = element_blank(), plot.title = element_text(face="bold")) +
-  scale_fill_scico(palette="vik", begin =0, end =1, name = "Z-score\n(Bispecific Ab \nvs Other)", , midpoint=0) +
-  facet_grid(.~paste0("CD8+ subsets"))
-
-cd4_diff + cd8_diff + plot_layout(nrow=2, guides="collect")
+  facet_wrap(celltype_short~., scales="free_y", nrow=2) +
+  guides(
+    fill = guide_colourbar(limits = c(min(res$z_score),  max(res$z_score)), breaks = c(-2, -1, 0, 1, 2))
+  )
 
 ggsave2(
   "figures/main/figure_5/t_diff_heatmap.png",
-  width = 100, height=90, dpi = 400, units = "mm", bg="white",
-  scale=1.3
+  tcell_sub_diff,
+  width = 105, height=90, dpi = 400, units = "mm", bg="white", scale=1.3
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -157,6 +144,8 @@ ggsave2(
 
 marker_lvl = c("PD1", "TIGIT", "TIM3", "LAG-3", "VISTA")
 day_lvl = c("Day 7", "Day 14", "Day 30", "Day 100")
+
+lab = as_labeller(c(PD1="PD1", TIGIT="TIGIT", TIM3="TIM3", `LAG-3`="LAG-3", VISTA="VISTA", CD4="CD4+CAR+", CD8="CD8+CAR+"))
 
 pd1_long = pd1_car_df %>%
   dplyr::select(-patient_id) %>%
@@ -179,18 +168,18 @@ longitudinal_checkpoint_cars = rbind(checkpoints_long, pd1_long) %>%
   geom_boxplot(outlier.shape = NA, linewidth=0.3, alpha=.75) +
   geom_point(color = "grey20", alpha = .6, position = position_jitterdodge(jitter.width = .3), size=.8) +
   scale_fill_manual("Bridging", values=c(anno_nejm[1], Other="grey60")) +
-  facet_grid(line~marker) +
-  mytheme_grid() +
+  facet_grid(line~marker, labeller = lab) +
+  mytheme_grid(11) +
   theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1), panel.grid.major.x = element_blank(), legend.position = "bottom", panel.spacing = unit(.75, "lines")) +
   ylab("Proportion (%) of CAR+ cells") +
   xlab("Time point after CAR T cell infusion") +
-  scale_y_continuous(expand = c(0.1, 0), breaks=seq(0,100,25)) +
+  scale_y_continuous(expand = c(0.15, 0), breaks=seq(0,100,25)) +
   geom_pwc(label="p.signif", hide.ns=T)
 
 ggsave2(
   "figures/main/figure_5/longitudinal_checkpoint_cars.png",
   longitudinal_checkpoint_cars,
-  width = 215, height = 109, dpi = 400, bg = "white", units = "mm", scale = 1
+  width = 215, height = 114, dpi = 400, bg = "white", units = "mm", scale = 1.2
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

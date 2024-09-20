@@ -25,5 +25,4 @@ If any question on the repo, feel free to contact [David](https://github.com/dav
 
 # References
 
-[Fandrei et al. Bispecific Antibodies as Bridging to BCMA CAR-T Cell Therapy for Relapsed/Refractory Multiple Myeloma. Blood Cancer
-Discovery. 2024]
+[Fandrei et al. Bispecific Antibodies as Bridging to BCMA CAR-T Cell Therapy for Relapsed/Refractory Multiple Myeloma. _Blood Cancer Discovery_ 2024 (provisionally accepted)]
